@@ -6,4 +6,10 @@ line = raw_input('Enter Tube line:')
 
 response = urllib2.urlopen('https://api.tfl.gov.uk/line/mode/tube/status')
 data = json.load(response)   
-print data
+print 
+
+line.lower()
+
+for line in data[id]:
+	print line
+return
