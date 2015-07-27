@@ -1,4 +1,3 @@
-
 def text( number,message ): 
 	from clockwork import clockwork
  
@@ -17,4 +16,4 @@ def text( number,message ):
 	    print (response.error_description)
 	return
 
-text('07837283251', 'Hey, this is a great and useful text');
+text(number,message);
