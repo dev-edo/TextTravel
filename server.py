@@ -22,4 +22,4 @@ httpd = make_server(
    )
 
 # Wait for a single request, serve it and quit.
-httpd.handle_request()
+httpd.serve_forever()
