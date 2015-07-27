@@ -10,6 +10,8 @@ print
 
 line.lower()
 
+
 for line in data[id]:
-	print line
-return
+	print str(line)
+	
+
