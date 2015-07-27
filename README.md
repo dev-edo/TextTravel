@@ -1,3 +1,3 @@
 # TextTravel
 
-YRS2015 Project using the Clockwork and Google APIs.
+YRS2015 Project using the ClockworkSMS and Google APIs.
