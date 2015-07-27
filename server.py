@@ -12,9 +12,7 @@ def texttravel(environ, start_response):
     d = parse_qs(environ['QUERY_STRING'])
     content = d.get('content', [''])[0] 
     from_sender = d.get('from', [''])[0]
-    print content
-    print from_sender
-    return [response_body]
+    help(from_sender);
 httpd = make_server(
    'localhost', # The host name.
    8051, # A port number where to wait for the request.
@@ -23,3 +21,4 @@ httpd = make_server(
 
 # Wait for a single request, serve it and quit.
 httpd.serve_forever()
+
