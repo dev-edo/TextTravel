@@ -1,6 +1,8 @@
 from wsgiref.simple_server import make_server
 from cgi import parse_qs, escape
 import help
+import sessions
+import origin_recieve
 def texttravel(environ, start_response):
     response_body = ""
 
@@ -12,7 +14,20 @@ def texttravel(environ, start_response):
     d = parse_qs(environ['QUERY_STRING'])
     content = d.get('content', [''])[0] 
     from_sender = d.get('from', [''])[0]
-    help.help(from_sender)
+    number = from_sender
+
+
+    content = content.lower()
+
+    db_data = sessions.retrive_data(number) 
+
+    if content = "help" or db_data = None:
+      help.help(from_sender)
+    return response_body
+
+    if (db_data[1] = None) and (db_data[2] = None)
+      origin_recieve.origin(number, content)
+    return response_body
 
     return response_body
 
