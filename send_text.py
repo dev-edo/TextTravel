@@ -1,7 +1,9 @@
+import config
+
 def text( number,message ): 
 	from clockwork import clockwork
  
-	api = clockwork.API('bc7209eb2eb0c99f74d7a96c03043f5271284866')
+	api = clockwork.API(config.key)
  
 	message = clockwork.SMS(
 	    to = number, 
@@ -16,4 +18,3 @@ def text( number,message ):
 	    print (response.error_description)
 	return
 
-text(number,message);
