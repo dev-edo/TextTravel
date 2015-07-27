@@ -21,11 +21,11 @@ def texttravel(environ, start_response):
 
     db_data = sessions.retrive_data(number) 
 
-    if content = "help" or db_data = None:
+    if content == "help" or db_data == None:
       help.help(from_sender)
     return response_body
 
-    if (db_data[1] = None) and (db_data[2] = None)
+    if (db_data[1] == None) and (db_data[2] == None)
       origin_recieve.origin(number, content)
     return response_body
 
