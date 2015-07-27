@@ -16,5 +16,5 @@ def text( number,message ):
 	else:
 	    print (response.error_code)
 	    print (response.error_description)
-	return
+	return 
 
