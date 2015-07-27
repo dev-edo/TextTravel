@@ -1,6 +1,6 @@
 from wsgiref.simple_server import make_server
 from cgi import parse_qs, escape
-
+import help
 def texttravel(environ, start_response):
     response_body = "Hello, World!"
 
@@ -12,7 +12,7 @@ def texttravel(environ, start_response):
     d = parse_qs(environ['QUERY_STRING'])
     content = d.get('content', [''])[0] 
     from_sender = d.get('from', [''])[0]
-    help(from_sender);
+    help.help(from_sender);
 httpd = make_server(
    'localhost', # The host name.
    8051, # A port number where to wait for the request.
