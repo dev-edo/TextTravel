@@ -20,3 +20,4 @@ def tube(number, message):
 			send = x["name"] + ": " + x["lineStatuses"][0]["statusSeverityDescription"]
 			send_text.text(number, send)
 
+	send_text.text(number, 'Sorry, something went wrong')
