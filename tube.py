@@ -14,7 +14,7 @@ def tube(number, message):
 	line = line.lower()
 
 	for x in data:
-		if x["name"]==line:
+		if x["id"]==line:
 			switch = True
 			print x["name"]
 			print x["lineStatuses"][0]["statusSeverityDescription"]
@@ -26,4 +26,4 @@ def tube(number, message):
 		
 	if switch is False:
 		print "Whoops! Error made."
-		send_text.text(number, "Failed.")
+		send_text.text(number, "Not a real line!")
