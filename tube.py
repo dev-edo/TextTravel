@@ -14,10 +14,15 @@ def tube(number, message):
 
 	for x in data:
 		if x["id"]==line:
+			switch = True
 			print x["name"]
 			print x["lineStatuses"][0]["statusSeverityDescription"]
 
 			send = x["name"] + ": " + x["lineStatuses"][0]["statusSeverityDescription"]
-			send_text.text(number, send)
-
-send_text.text(number, 'Sorry, something went wrong')
+	
+	if switch is True:
+		send_text.text(number, send)
+		
+	if switch is False:
+		print "Whoops! Error made."
+		send_text.text(number, "Failed.")
