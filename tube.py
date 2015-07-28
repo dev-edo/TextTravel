@@ -8,7 +8,7 @@ def tube(number, message):
 	data = json.load(response)
 
 	switch = False
-	line = line.lower()
+	line = message.lower()
 
 	for x in data:
     		if x["id"] == line:
