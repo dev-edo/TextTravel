@@ -25,27 +25,96 @@ def texttravel(environ, start_response):
     db_phone = db_data[0]
     db_origin = db_data[1]
     db_destination = db_data[2]
+    spl_txt[0] = operator
 
 
     print spl_txt[0]
 
     print spl_txt
 
-    if spl_txt[0] == 'tube':
+    if operator == 'tube':
         tube.tube(number, spl_txt)
         return response_body
 
-    if content == "help" or db_data == None:
-        help.help(from_sender)
-        return response_body
+    
+        #make a sesson
+    if operator == 'to':
+        if db_phone != number:
+          sessions.insert(number)
 
-    if (db_origin == None) and (db_destination == None) and (db_phone = number):
-        origin_recieve.origin(number, content)
-        return response_body
+          if (db_origin != None) and (db_destination != None)
+            #Google
+            pass
+          else:
+            sessions.add_destination(number, db_destination)
+          if db_destination == None:
+            send_text.text(number, 'Origin now please')
+          else: 
+            #google
+            pass
+        else:
+          if (db_origin != None) and (db_destination != None)
+            #Google
+          else:
+            if db_origin == None:
+              send_text.text(number, 'Origin now please')
+            else: 
+              #google
+              pass
+    if (operator == 'from'):
+        if db_phone != number:
+          sessions.insert(number)
 
-    if (db_origin != None) and (db_destination == None) and (db_phone = number):
-        destination_recieve.destination(number, content)
-        return response_body
+          if (db_origin != None) and (db_destination != None)
+            #Google
+            pass
+          else:
+            sessions.add_origin(number, db_origin)
+          if db_destination == None:
+            send_text.text(number, 'Destination now please')
+          else: 
+            #google
+            pass
+        else:
+          if (db_origin != None) and (db_destination != None)
+            #Google
+          else:
+            if db_destination == None:
+              send_text.text(number, 'Destination now please')
+            else: 
+              #google
+              pass
+
+    else if (db_origin != None):
+      if db_phone != number:
+          sessions.insert(number)
+
+          if (db_origin != None) and (db_destination != None)
+            #Google
+            pass
+          else:
+            sessions.add_destination(number, db_destination)
+          if db_destination == None:
+            send_text.text(number, 'Origin now please')
+          else: 
+            #google
+            pass
+        else:
+          if (db_origin != None) and (db_destination != None)
+            #Google
+          else:
+            if db_origin == None:
+              send_text.text(number, 'Origin now please')
+            else: 
+              #google
+              pass   
+    else if (db_destination != None):
+        #store destination and check if both are filled
+    else:
+        #make an error
+    return response_body
+
+   
 
     return response_body
 

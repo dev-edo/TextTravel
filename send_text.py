@@ -7,7 +7,9 @@ def text( number,message ):
  
 	message = clockwork.SMS(
 	    to = number, 
-	    message = message)
+	    message = message,
+	    from_name = '07860033725'
+	    )
  
 	response = api.send(message)
  

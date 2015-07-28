@@ -8,7 +8,7 @@ def help(number):
 
 	message = 'Text me your origin to get started'
 	send_text.text(number, message)
-	if db_data == none:
+	if db_data == None:
 		sessions.insert(number)
 	else:
 		pass
