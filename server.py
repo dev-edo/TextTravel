@@ -22,7 +22,8 @@ def texttravel(environ, start_response):
     content = content.lower()
     spl_txt = content.split()
     db_data = sessions.retrive_data(number)
-
+    print spl_txt[0]
+    print spl_txt
     if spl_txt[0] == 'tube':
         tube.tube(number, spl_txt)
         return response_body
