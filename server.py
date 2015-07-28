@@ -18,13 +18,13 @@ def texttravel(environ, start_response):
     from_sender = d.get('from', [''])[0]
     number = from_sender
 
-    content = raw_input('Enter Tube line:')
+
     content = content.lower()
     spl_txt = text.split(content)
     db_data = sessions.retrive_data(number)
 
     if spl_txt[0] == 'tube':
-        tube2.tube(number,text_spl)
+        tube2.tube(number, text_spl)
         return response_body
 
     if content == "help" or db_data == None:
