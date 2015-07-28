@@ -42,7 +42,7 @@ def texttravel(environ, start_response):
         if db_phone != number:
           sessions.insert(number)
 
-          if (db_origin != None) and (db_destination != None)
+          if (db_origin != None) and (db_destination != None):
             #Google
             pass
           else:
