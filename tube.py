@@ -17,8 +17,8 @@ def tube(number, message):
 		    	print x["lineStatuses"][0]["statusSeverityDescription"]
 			send = x["name"].title() + " Line: " + x["lineStatuses"][0]["statusSeverityDescription"]
 
-		if switch is True:
-	    	send_text.text(number, send)
+	if switch is True:
+		send_text.text(number, send)
 
-		if switch is False:
-			send_text.text(number, 'Not a real line!')
+	if switch is False:
+		send_text.text(number, 'Not a real line!')
