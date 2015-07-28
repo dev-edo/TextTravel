@@ -31,6 +31,9 @@ def texttravel(environ, start_response):
       db_destination = db_data[2]
     else: 
       sessions.insert(number)
+      db_phone = db_data[0]
+      db_origin = db_data[1]
+      db_destination = db_data[2]
     
     operator = spl_txt[0]
     item = spl_txt[1]
