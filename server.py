@@ -37,6 +37,10 @@ def texttravel(environ, start_response):
         tube.tube(number, spl_txt)
         return response_body
 
+    if operator == 'help':
+        send_text.text(number,'To get tube status, "tube {line}", for route info, "to {place}" and "from {place}"'))
+        return response_body
+
     
         #make a sesson
     if operator == 'to':
