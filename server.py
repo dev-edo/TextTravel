@@ -2,8 +2,6 @@ from wsgiref.simple_server import make_server
 from cgi import parse_qs, escape
 import help
 import sessions
-import origin_recieve
-import destination_recieve
 import tube
 import send_text
 import google
@@ -38,9 +36,7 @@ def texttravel(environ, start_response):
     operator = spl_txt[0]
     
 
-    print spl_txt[0]
-
-    print spl_txt
+    
 
     if operator == 'tube':
         item = spl_txt[1]
