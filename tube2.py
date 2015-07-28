@@ -9,7 +9,7 @@ def tube(number,text_spl):
 	data = json.load(response)   
 	print 
 
-	line = text_spl[2].lower()
+	line = text_spl[1].lower()
 
 	for x in data:
 		if x["id"]==line:

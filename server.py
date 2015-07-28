@@ -17,13 +17,13 @@ def texttravel(environ, start_response):
     content = d.get('content', [''])[0] 
     from_sender = d.get('from', [''])[0]
     number = from_sender
-    
+
 
     content = content.lower()
     spl_txt = text.split(content)
     db_data = sessions.retrive_data(number)
 
-    if spl_txt == 'tube':
+    if spl_txt[0] == 'tube':
         tube2.tube(number,text_spl)
         return response_body
 
