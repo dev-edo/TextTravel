@@ -13,9 +13,9 @@ def tube(number, message):
 
 	for x in data:
     		if x["id"] == line:
-        	switch = True
-        	print x["name"]
-        	print x["lineStatuses"][0]["statusSeverityDescription"]
+		    	switch = True
+		    	print x["name"]
+		    	print x["lineStatuses"][0]["statusSeverityDescription"]
 	send = line.title() + " Line: " + x["lineStatuses"][0]["statusSeverityDescription"]
 
 	if switch is True:
