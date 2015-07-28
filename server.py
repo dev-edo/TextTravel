@@ -63,7 +63,7 @@ def texttravel(environ, start_response):
           routes = routes.join()
           send_text.text(number, routes)
           return response_body
-        else:
+      else:
           if (db_origin != None) and (db_destination != None):
             routes = google.google(db_origin,db_destination)
             routes = routes.join()
