@@ -3,7 +3,8 @@ from cgi import parse_qs, escape
 import help
 import sessions
 import origin_recieve
-import destination_recieve
+#import destination_recieve
+import tube
 def texttravel(environ, start_response):
     response_body = ""
 
@@ -19,8 +20,13 @@ def texttravel(environ, start_response):
 
 
     content = content.lower()
-
-    db_data = sessions.retrive_data(number) 
+    spl_txt = content.split()
+    db_data = sessions.retrive_data(number)
+    print spl_txt[0]
+    print spl_txt
+    if spl_txt[0] == 'tube':
+        tube.tube(number, spl_txt)
+        return response_body
 
     if content == "help" or db_data == None:
         help.help(from_sender)
