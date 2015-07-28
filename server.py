@@ -24,7 +24,7 @@ def texttravel(environ, start_response):
     db_data = sessions.retrive_data(number)
 
     if spl_txt[0] == 'tube':
-        tube2.tube(number, text_spl)
+        tube2.tube(number, spl_txt)
         return response_body
 
     if content == "help" or db_data == None:
