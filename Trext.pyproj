@@ -5,8 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>65c1a453-cda4-4952-af22-60eaadd7fed8</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>persistence\tests.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -33,6 +32,18 @@
     <Compile Include="help.py" />
     <Compile Include="inference.py" />
     <Compile Include="origin_recieve.py" />
+    <Compile Include="persistence\memorysession.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="persistence\session.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="persistence\tests.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="persistence\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="send_text.py" />
     <Compile Include="server.py" />
     <Compile Include="sessions.py" />
@@ -42,6 +53,9 @@
     <Content Include=".gitignore" />
     <Content Include="README.md" />
     <Content Include="REQUIREMENTS.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="persistence\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
