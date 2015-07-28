@@ -3,7 +3,7 @@ from cgi import parse_qs, escape
 import help
 import sessions
 import origin_recieve
-#import destination_recieve
+import destination_recieve
 import tube
 def texttravel(environ, start_response):
     response_body = ""

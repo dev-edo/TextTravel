@@ -9,7 +9,7 @@ def help(number):
 	send_text.text(number, message)
 	if number == db_data[0]:
 		pass
-	else
+	else:
 		sessions.insert(number)
 
 	return
