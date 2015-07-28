@@ -21,4 +21,4 @@ def tube(number, message):
 		send_text.text(number, send)
 
 	if switch is False:
-		send_text.text(number, 'Not a real line!')
+		send_text.text(number, 'Error: Not a real line!')
