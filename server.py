@@ -36,13 +36,14 @@ def texttravel(environ, start_response):
       db_destination = db_data[2]
     
     operator = spl_txt[0]
-    item = spl_txt[1]
+    
 
     print spl_txt[0]
 
     print spl_txt
 
     if operator == 'tube':
+        item = spl_txt[1]
         tube.tube(number, spl_txt[1])
         return response_body
 
