@@ -20,7 +20,7 @@ def texttravel(environ, start_response):
 
 
     content = content.lower()
-    spl_txt = text.split(content)
+    spl_txt = content.split()
     db_data = sessions.retrive_data(number)
 
     if spl_txt[0] == 'tube':
