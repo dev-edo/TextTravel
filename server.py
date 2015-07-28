@@ -29,7 +29,7 @@ def texttravel(environ, start_response):
       db_origin = db_data[1]
       db_destination = db_data[2]
     operator = spl_txt[0]
-
+    item = spl_txt[1]
 
     print spl_txt[0]
 
@@ -55,7 +55,7 @@ def texttravel(environ, start_response):
           send_text.text(number, routes)
           return response_body
         else:
-          sessions.add_destination(number, db_destination)
+          sessions.add_destination(number, item)
         if db_destination == None:
           send_text.text(number, 'Origin now please')
         else: 
@@ -90,7 +90,7 @@ def texttravel(environ, start_response):
             return response_body
             
           else:
-            sessions.add_origin(number, db_origin)
+            sessions.add_origin(number, item)
           if db_destination == None:
             send_text.text(number, 'Destination now please')
           else: 
@@ -118,15 +118,15 @@ def texttravel(environ, start_response):
           sessions.insert(number)
 
           if (db_origin != None) and (db_destination != None):
-            routes = google.google(db_origin,db_destination)
+            routes = google.google(db_origin, db_destination)
             routes = routes.join()
             send_text.text(number, routes)
             return response_body
             
           else:
-            sessions.add_destination(number, db_destination)
+            sessions.add_destination(number, item)
           if db_destination == None:
-            send_text.text(number, 'Origin now please')
+            send_text.text(number, 'Destination now please')
           else: 
             routes = google.google(db_origin,db_destination)
             routes = routes.join()
@@ -156,7 +156,7 @@ def texttravel(environ, start_response):
             send_text.text(number, routes)
             return response_body
           else:
-            sessions.add_origin(number, db_origin)
+            sessions.add_origin(number, item)
           if db_destination == None:
             send_text.text(number, 'Destination now please')
           else: 
