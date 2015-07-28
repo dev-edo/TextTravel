@@ -8,10 +8,10 @@ def tube(number, message):
 	data = json.load(response)
 
 	switch = False
-	line = message.lower()
+	line = message
 
 	for x in data:
-    		if x["id"] == line:
+    		if x["id"] == line.lower():
 		    	switch = True
 		    	print x["name"]
 		    	print x["lineStatuses"][0]["statusSeverityDescription"]
