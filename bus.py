@@ -1,3 +1,6 @@
+#Needs to be linked to the texting service, planned for a later date but needs to be done before
+#friday. -Mike
+
 import send_text
 import urllib2
 import json
