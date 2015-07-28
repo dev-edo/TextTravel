@@ -43,7 +43,7 @@ def texttravel(environ, start_response):
     print spl_txt
 
     if operator == 'tube':
-        tube.tube(number, spl_txt)
+        tube.tube(number, spl_txt[1])
         return response_body
 
     if operator == 'help':
