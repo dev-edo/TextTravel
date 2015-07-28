@@ -14,12 +14,12 @@ def tube(number, message):
 	line = line.lower()
 
 	for x in data:
-		if x["id"]==line:
+		if x["name"]==line:
 			switch = True
 			print x["name"]
 			print x["lineStatuses"][0]["statusSeverityDescription"]
 
-			send = x["name"] + ": " + x["lineStatuses"][0]["statusSeverityDescription"]
+			send = x["name"] + " Line Status: " + x["lineStatuses"][0]["statusSeverityDescription"]
 	
 	if switch is True:
 		send_text.text(number, send)
