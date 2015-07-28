@@ -2,9 +2,9 @@ import send_text
 import urllib2
 import json
 
-def bus(number, messageB):
+def bus(number, message):
 	
-	route = messageB[1]
+	route = message[1]
 
 	response = urllib2.urlopen('https://api.tfl.gov.uk/line/mode/bus/status')
 	data = json.load(response)   
