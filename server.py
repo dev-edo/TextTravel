@@ -18,7 +18,7 @@ def texttravel(environ, start_response):
     from_sender = d.get('from', [''])[0]
     number = from_sender
 
-
+    content = raw_input('Enter Tube line:')
     content = content.lower()
     spl_txt = text.split(content)
     db_data = sessions.retrive_data(number)

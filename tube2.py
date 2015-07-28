@@ -3,7 +3,6 @@ import json
 import send_text
 
 def tube(number,text_spl):
-	line = raw_input('Enter Tube line:')
 
 	response = urllib2.urlopen('https://api.tfl.gov.uk/line/mode/tube/status')
 	data = json.load(response)   
