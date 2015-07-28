@@ -1,17 +1,20 @@
 import urllib2
 import json
-def tube(number):
+import send_text
+
+def tube(number,text_spl):
 	line = raw_input('Enter Tube line:')
 
 	response = urllib2.urlopen('https://api.tfl.gov.uk/line/mode/tube/status')
 	data = json.load(response)   
 	print 
 
-	line = line.lower()
+	line = text_spl[2].lower()
 
 	for x in data:
 		if x["id"]==line:
-			print x["name"]
-			#print x["modified"][11:19]
-			print x["lineStatuses"][0]["statusSeverityDescription"]
+			send_text.text(number, ["lineStatuses"][0]["statusSeverityDescription"])
 	return
+
+
+
