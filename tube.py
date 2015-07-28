@@ -1,9 +1,9 @@
 import urllib2
 import json
 
-def tube(number):
+def tube(number, message):
 	
-	line = raw_input('Enter Tube line:')
+	line = message[1]
 
 	response = urllib2.urlopen('https://api.tfl.gov.uk/line/mode/tube/status')
 	data = json.load(response)   
@@ -18,5 +18,5 @@ def tube(number):
 			send =  line.title() + ": " + x["lineStatuses"][0]["statusSeverityDescription"]
 
 	api = clockwork.API('18aee4cf4155c51edb5d460adc9fe06dedea7668')
-	message = clockwork.SMS(to = '07794411059', message = send)
+	message = clockwork.SMS(to = number, message = send)
 	response = api.send(message)

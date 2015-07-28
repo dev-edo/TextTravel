@@ -4,7 +4,7 @@ import help
 import sessions
 import origin_recieve
 #import destination_recieve
-import tube2
+import tube
 def texttravel(environ, start_response):
     response_body = ""
 
@@ -24,7 +24,7 @@ def texttravel(environ, start_response):
     db_data = sessions.retrive_data(number)
 
     if spl_txt[0] == 'tube':
-        tube2.tube(number, spl_txt)
+        tube.tube(number, spl_txt)
         return response_body
 
     if content == "help" or db_data == None:
