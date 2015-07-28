@@ -13,5 +13,5 @@ line = line.lower()
 for x in data:
 	if x["id"]==line:
 		print x["name"]
-		print x["modified"][11:19]
+		#print x["modified"][11:19]
 		print x["lineStatuses"][0]["statusSeverityDescription"]
