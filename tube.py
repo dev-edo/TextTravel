@@ -26,4 +26,4 @@ def tube(number, message):
 		
 	if switch is False:
 		print "Whoops! Error made."
-		send_text.text(number, "Not a real line!")
+		send_text.text(number, "Failed!")
