@@ -46,23 +46,23 @@ def texttravel(environ, start_response):
     
         #make a sesson
     if operator == 'to':
-        if db_phone = None:
-          sessions.insert(number)
+      if db_phone = None:
+        sessions.insert(number)
 
-          if (db_origin != None) and (db_destination != None):
-            routes = google.google(db_origin,db_destination)
-            routes = routes.join()
-            send_text.text(number, routes)
-            return response_body
-          else:
-            sessions.add_destination(number, db_destination)
-          if db_destination == None:
-            send_text.text(number, 'Origin now please')
-          else: 
-            routes = google.google(db_origin,db_destination)
-            routes = routes.join()
-            send_text.text(number, routes)
-            return response_body
+        if (db_origin != None) and (db_destination != None):
+          routes = google.google(db_origin,db_destination)
+          routes = routes.join()
+          send_text.text(number, routes)
+          return response_body
+        else:
+          sessions.add_destination(number, db_destination)
+        if db_destination == None:
+          send_text.text(number, 'Origin now please')
+        else: 
+          routes = google.google(db_origin,db_destination)
+          routes = routes.join()
+          send_text.text(number, routes)
+          return response_body
         else:
           if (db_origin != None) and (db_destination != None):
             routes = google.google(db_origin,db_destination)
