@@ -2,7 +2,7 @@ import send_text
 import urllib2
 import json
 
-def tube(number, message):
+def bus(number, message):
 	
 	line = message[1]
 
