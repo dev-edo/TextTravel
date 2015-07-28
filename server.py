@@ -38,7 +38,7 @@ def texttravel(environ, start_response):
         return response_body
 
     if operator == 'help':
-        send_text.text(number,'To get tube status, "tube {line}", for route info, "to {place}" and "from {place}"'))
+        send_text.text(number,'To get tube status, "tube {line}", for route info, "to {place}" and "from {place}"')
         return response_body
 
     
