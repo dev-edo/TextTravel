@@ -46,7 +46,7 @@ def texttravel(environ, start_response):
     
         #make a sesson
     if operator == 'to':
-      if db_phone = None:
+      if db_phone == None:
         sessions.insert(number)
 
         if (db_origin != None) and (db_destination != None):
