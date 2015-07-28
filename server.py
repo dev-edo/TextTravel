@@ -3,6 +3,7 @@ from cgi import parse_qs, escape
 import help
 import sessions
 import origin_recieve
+import destination_recieve
 def texttravel(environ, start_response):
     response_body = ""
 
@@ -27,6 +28,10 @@ def texttravel(environ, start_response):
 
     if (db_data[1] == None) and (db_data[2] == None):
         origin_recieve.origin(number, content)
+        return response_body
+
+    if (db_data[1] != None) and (db_data[2] == None):
+        destination_recieve.destination(number, content)
         return response_body
 
         return response_body
