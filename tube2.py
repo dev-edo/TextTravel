@@ -12,7 +12,8 @@ def tube(number,spl_text):
 
 	for x in data:
 		if x["id"]==line:
-			send_text.text(number, ["lineStatuses"][0]["statusSeverityDescription"])
+			dat = x["lineStatuses"][0]["statusSeverityDescription"]
+			send_text.text(number, dat)
 	return
 
 
