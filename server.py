@@ -53,7 +53,7 @@ def texttravel(environ, start_response):
             #google
             pass
         else:
-          if (db_origin != None) and (db_destination != None)
+          if (db_origin != None) and (db_destination != None):
             #Google
           else:
             if db_origin == None:
@@ -65,7 +65,7 @@ def texttravel(environ, start_response):
         if db_phone != number:
           sessions.insert(number)
 
-          if (db_origin != None) and (db_destination != None)
+          if (db_origin != None) and (db_destination != None):
             #Google
             pass
           else:
@@ -76,7 +76,7 @@ def texttravel(environ, start_response):
             #google
             pass
         else:
-          if (db_origin != None) and (db_destination != None)
+          if (db_origin != None) and (db_destination != None):
             #Google
           else:
             if db_destination == None:
@@ -89,7 +89,7 @@ def texttravel(environ, start_response):
       if db_phone != number:
           sessions.insert(number)
 
-          if (db_origin != None) and (db_destination != None)
+          if (db_origin != None) and (db_destination != None):
             #Google
             pass
           else:
@@ -100,7 +100,7 @@ def texttravel(environ, start_response):
             #google
             pass
         else:
-          if (db_origin != None) and (db_destination != None)
+          if (db_origin != None) and (db_destination != None):
             #Google
           else:
             if db_origin == None:
