@@ -16,11 +16,7 @@ def tube(number, message):
 		if x["id"]==line:
 			print x["name"]
 			print x["lineStatuses"][0]["statusSeverityDescription"]
-<<<<<<< HEAD
-			send = line.capwords() + ": " + x["lineStatuses"][0]["statusSeverityDescription"]
-			send_text.text(number, send)
-=======
-			send = line.title() + ": " + x["lineStatuses"][0]["statusSeverityDescription"]
 
-	send_text.text(number, send)
->>>>>>> 31a10afc5dc51137670f7cc19970cde3b7576707
+			send = x["name"] + ": " + x["lineStatuses"][0]["statusSeverityDescription"]
+			send_text.text(number, send)
+
