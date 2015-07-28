@@ -17,4 +17,3 @@ def text( number,message ):
 	    print (response.error_code)
 	    print (response.error_description)
 	return 
-
