@@ -8,14 +8,10 @@ response = urllib2.urlopen('https://api.tfl.gov.uk/line/mode/tube/status')
 data = json.load(response)   
 print 
 
-line.lower()
+line = line.lower()
 
-
-for line in data[id]:
-<<<<<<< HEAD
-	print str(line)
-	
-
-=======
-	print line
->>>>>>> 565fd25f09a4aad35a5b5ee3907bb2ae50e46673
+for x in data:
+	if x["id"]==line:
+		print x["name"]
+		print x["modified"][11:19]
+		print x["lineStatuses"][0]["statusSeverityDescription"]
