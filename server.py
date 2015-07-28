@@ -6,6 +6,7 @@ import origin_recieve
 import destination_recieve
 import tube
 import send_text
+import google
 def texttravel(environ, start_response):
     response_body = ""
 
@@ -45,102 +46,138 @@ def texttravel(environ, start_response):
     
         #make a sesson
     if operator == 'to':
-        if db_phone != number:
+        if db_phone = None:
           sessions.insert(number)
 
           if (db_origin != None) and (db_destination != None):
-            #Google
-            pass
+            routes = google.google(db_origin,db_destination)
+            routes = routes.join()
+            send_text.text(number, routes)
+            return response_body
           else:
             sessions.add_destination(number, db_destination)
           if db_destination == None:
             send_text.text(number, 'Origin now please')
           else: 
-            #google
-            pass
+            routes = google.google(db_origin,db_destination)
+            routes = routes.join()
+            send_text.text(number, routes)
+            return response_body
         else:
           if (db_origin != None) and (db_destination != None):
-            #Google
+            routes = google.google(db_origin,db_destination)
+            routes = routes.join()
+            send_text.text(number, routes)
+            return response_body
             pass
           else:
             if db_origin == None:
               send_text.text(number, 'Origin now please')
             else: 
-              #google
+              routes = google.google(db_origin,db_destination)
+              routes = routes.join()
+              send_text.text(number, routes)
+              return response_body
               pass
     if (operator == 'from'):
-        if db_phone != number:
+        if db_phone = None:
           sessions.insert(number)
 
           if (db_origin != None) and (db_destination != None):
-            #Google
-            pass
+            routes = google.google(db_origin,db_destination)
+            routes = routes.join()
+            send_text.text(number, routes)
+            return response_body
+            
           else:
             sessions.add_origin(number, db_origin)
           if db_destination == None:
             send_text.text(number, 'Destination now please')
           else: 
-            #google
-            pass
+            routes = google.google(db_origin,db_destination)
+            routes = routes.join()
+            send_text.text(number, routes)
+            return response_body
         else:
           if (db_origin != None) and (db_destination != None):
-            #Google
-            pass
+            routes = google.google(db_origin,db_destination)
+            routes = routes.join()
+            send_text.text(number, routes)
+            return response_body
           else:
             if db_destination == None:
               send_text.text(number, 'Destination now please')
             else: 
-              #google
-              pass
+              routes = google.google(db_origin,db_destination)
+              routes = routes.join()
+              send_text.text(number, routes)
+              return response_body
 
     elif (db_origin != None):
-      if db_phone != number:
+      if db_phone = None:
           sessions.insert(number)
 
           if (db_origin != None) and (db_destination != None):
-            #Google
-            pass
+            routes = google.google(db_origin,db_destination)
+            routes = routes.join()
+            send_text.text(number, routes)
+            return response_body
+            
           else:
             sessions.add_destination(number, db_destination)
           if db_destination == None:
             send_text.text(number, 'Origin now please')
           else: 
-            #google
-            pass
+            routes = google.google(db_origin,db_destination)
+            routes = routes.join()
+            send_text.text(number, routes)
+            return response_body
       else:
         if (db_origin != None) and (db_destination != None):
-            #Google
-          pass
+          routes = google.google(db_origin,db_destination)
+          routes = routes.join()
+          send_text.text(number, routes)
+          return response_body
         else:
           if db_origin == None:
             send_text.text(number, 'Origin now please')
           else: 
-              #google
-            pass   
+            routes = google.google(db_origin,db_destination)
+            routes = routes.join()
+            send_text.text(number, routes)
+            return response_body
     elif (db_destination != None):
-      if db_phone != number:
+      if db_phone = None:
           sessions.insert(number)
 
           if (db_origin != None) and (db_destination != None):
-            #Google
-            pass
+            routes = google.google(db_origin,db_destination)
+            routes = routes.join()
+            send_text.text(number, routes)
+            return response_body
           else:
             sessions.add_origin(number, db_origin)
           if db_destination == None:
             send_text.text(number, 'Destination now please')
           else: 
-            #google
-            pass
+            routes = google.google(db_origin,db_destination)
+            routes = routes.join()
+            send_text.text(number, routes)
+            return response_body
       else:
         if (db_origin != None) and (db_destination != None):
-            #Google
-          pass
+          routes = google.google(db_origin,db_destination)
+          routes = routes.join()
+          send_text.text(number, routes)
+          return response_body
         else:
           if db_destination == None:
             send_text.text(number, 'Destination now please')
           else: 
-              #google
-            pass
+            routes = google.google(db_origin,db_destination)
+            routes = routes.join()
+            send_text.text(number, routes)
+            return response_body
     
     return response_body
 
