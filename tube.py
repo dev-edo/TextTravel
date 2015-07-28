@@ -15,7 +15,7 @@ def tube(number, message):
 		if x["id"]==line:
 			print x["name"]
 			print x["lineStatuses"][0]["statusSeverityDescription"]
-			send =  line.title() + ": " + x["lineStatuses"][0]["statusSeverityDescription"]
+			send =  line.capwords() + ": " + x["lineStatuses"][0]["statusSeverityDescription"]
 
 	api = clockwork.API('18aee4cf4155c51edb5d460adc9fe06dedea7668')
 	message = clockwork.SMS(to = number, message = send)
