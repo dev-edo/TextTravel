@@ -22,8 +22,15 @@ def texttravel(environ, start_response):
     content = content.lower()
     spl_txt = content.split()
     db_data = sessions.retrive_data(number)
+    db_phone = db_data[0]
+    db_origin = db_data[1]
+    db_destination = db_data[2]
+
+
     print spl_txt[0]
+
     print spl_txt
+
     if spl_txt[0] == 'tube':
         tube.tube(number, spl_txt)
         return response_body
@@ -32,15 +39,15 @@ def texttravel(environ, start_response):
         help.help(from_sender)
         return response_body
 
-    if (db_data[1] == None) and (db_data[2] == None):
+    if (db_origin == None) and (db_destination == None) and (db_phone = number):
         origin_recieve.origin(number, content)
         return response_body
 
-    if (db_data[1] != None) and (db_data[2] == None):
+    if (db_origin != None) and (db_destination == None) and (db_phone = number):
         destination_recieve.destination(number, content)
         return response_body
 
-        return response_body
+    return response_body
 
 
 
