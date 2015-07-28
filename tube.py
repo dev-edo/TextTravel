@@ -4,6 +4,7 @@ import json
 
 def tube(number, message):
 	
+	switch = False
 	line = message[1]
 
 	response = urllib2.urlopen('https://api.tfl.gov.uk/line/mode/tube/status')
