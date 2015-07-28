@@ -15,7 +15,7 @@ def tube(number, message):
 		    	switch = True
 		    	print x["name"]
 		    	print x["lineStatuses"][0]["statusSeverityDescription"]
-	send = line.title() + " Line: " + x["lineStatuses"][0]["statusSeverityDescription"]
+			send = line.title() + " Line: " + x["lineStatuses"][0]["statusSeverityDescription"]
 
 	if switch is True:
     		send_text.text(number, send)
