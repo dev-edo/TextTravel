@@ -55,6 +55,7 @@ def texttravel(environ, start_response):
         else:
           if (db_origin != None) and (db_destination != None):
             #Google
+            pass
           else:
             if db_origin == None:
               send_text.text(number, 'Origin now please')
@@ -78,6 +79,7 @@ def texttravel(environ, start_response):
         else:
           if (db_origin != None) and (db_destination != None):
             #Google
+            pass
           else:
             if db_destination == None:
               send_text.text(number, 'Destination now please')
@@ -85,7 +87,7 @@ def texttravel(environ, start_response):
               #google
               pass
 
-    else if (db_origin != None):
+    elif (db_origin != None):
       if db_phone != number:
           sessions.insert(number)
 
@@ -99,19 +101,41 @@ def texttravel(environ, start_response):
           else: 
             #google
             pass
+      else:
+        if (db_origin != None) and (db_destination != None):
+            #Google
+          pass
         else:
+          if db_origin == None:
+            send_text.text(number, 'Origin now please')
+          else: 
+              #google
+            pass   
+    elif (db_destination != None):
+      if db_phone != number:
+          sessions.insert(number)
+
           if (db_origin != None) and (db_destination != None):
             #Google
+            pass
           else:
-            if db_origin == None:
-              send_text.text(number, 'Origin now please')
-            else: 
+            sessions.add_origin(number, db_origin)
+          if db_destination == None:
+            send_text.text(number, 'Destination now please')
+          else: 
+            #google
+            pass
+      else:
+        if (db_origin != None) and (db_destination != None):
+            #Google
+          pass
+        else:
+          if db_destination == None:
+            send_text.text(number, 'Destination now please')
+          else: 
               #google
-              pass   
-    else if (db_destination != None):
-        #store destination and check if both are filled
-    else:
-        #make an error
+            pass
+    
     return response_body
 
    
