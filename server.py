@@ -53,6 +53,10 @@ def texttravel(environ, start_response):
         item = spl_txt[1]
         bus.bus(number, item)
         return response_body
+    if operator == 'return':
+        pass
+        #edo's return function
+        return response_body
     else:
       inference.infer(number,content,spl_txt,db_data)
 
