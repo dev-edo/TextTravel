@@ -2,6 +2,7 @@ import send_text
 import urllib2
 import json
 
+
 def tube(number, message):
 
     response = urllib2.urlopen('https://api.tfl.gov.uk/line/mode/tube/status')
@@ -9,16 +10,14 @@ def tube(number, message):
 
     switch = False
     
-    line = message
-    
-    if (line.lower() == "hammersmith and city") or (line.lower() == "hammersmith") or (line.lower() == "hammersmith & city"):
-        line = "hammersmith-city"
+    if (message.lower() == "hammersmith and city") or (message.lower() == "hammersmith") or (message.lower() == "hammersmith & city"):
+        message = "hammersmith-city"
 
-    if (line.lower() == "waterloo and city") or (line.lower() == "waterloo") or (line.lower() == "waterloo & city"):
-        line = "waterloo-city"
+    if (message.lower() == "waterloo and city") or (message.lower() == "waterloo") or (message.lower() == "waterloo & city"):
+        message = "waterloo-city"
 
     for x in data:
-        if x["id"] == line.lower():
+        if x["id"] == message.lower():
             switch = True
             print x["name"]
             print x["lineStatuses"][0]["statusSeverityDescription"]
