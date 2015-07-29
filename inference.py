@@ -28,10 +28,13 @@ def infer(number,message,spl_text, db_data):
                 #if there is nothing in origin and we have a dest for this number
                 #take the origin that has been sent and add to db, then google
                 sessions.add_origin(number, message)
+                return google.directions(db_origin, db_destination)
+
             elif (db_origin != None) and (db_destination == None):
                 #if we have origin but no destination
                 #take the dest that has been sent and add to db, then google
                 sessions.add_destination(number, message)
+                return google.directions(db_origin, db_destination)
             elif (db_origin == None) and (db_destination == None): #neither have been populated, we assume starting with origin
                 #take the origin, explain decision and ask for destination
                 sessions.add_origin(number, message)
