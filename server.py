@@ -26,15 +26,15 @@ def texttravel(environ, start_response):
     spl_txt = content.split()
     db_data = sessions.retrive_data(number)
     if db_data != None:
-      db_phone = db_data[0]
-      db_origin = db_data[1]
-      db_destination = db_data[2]
+        db_phone = db_data[0]
+        db_origin = db_data[1]
+        db_destination = db_data[2]
     else: 
-      sessions.insert(number)
-      db_data = sessions.retrive_data(number)
-      db_phone = db_data[0]
-      db_origin = db_data[1]
-      db_destination = db_data[2]
+        sessions.insert(number)
+        db_data = sessions.retrive_data(number)
+        db_phone = db_data[0]
+        db_origin = db_data[1]
+        db_destination = db_data[2]
     
     operator = spl_txt[0]
     
@@ -55,7 +55,7 @@ def texttravel(environ, start_response):
         return response_body
     if operator == 'return':
         pass
-        #edo's return function
+        inference.infer(number,content,spl_txt,db_data)
         return response_body
     else:
       inference.infer(number,content,spl_txt,db_data)
