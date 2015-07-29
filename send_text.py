@@ -1,4 +1,4 @@
-import config
+﻿import config
 
 def text( number,message ): 
     from clockwork import clockwork

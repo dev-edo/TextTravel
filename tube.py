@@ -1,4 +1,4 @@
-import send_text
+﻿import send_text
 import urllib2
 import json
 
