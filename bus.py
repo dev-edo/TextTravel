@@ -3,7 +3,8 @@ import urllib2
 import json
 
 
-def bus(number, message):
+def bus(number, item):
+    message = item
     response = urllib2.urlopen('https://api.tfl.gov.uk/line/mode/bus/status')
     data = json.load(response)
 
