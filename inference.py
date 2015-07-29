@@ -43,14 +43,14 @@ def infer(number,message):
             #write to the database
             if (db_origin != None) and (db_destination != None):
                 #Google
-            else 
+            else: 
                 #prompt for origin 
         if operator == 'from':
             #we have an origin 
             #write it to the db
             if (db_origin != None) and (db_destination != None):
                 #Google
-            else
+            else:
                 #prompt for destination
     else:
         send_text.text(number,'Your message is not valid and we cannot proccess it.')
