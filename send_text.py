@@ -12,6 +12,8 @@ def text( number,message ):
         )
  
     response = api.send(message)
+
+    print(message) 
  
     if response.success:
         print (response.id)
