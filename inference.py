@@ -7,35 +7,35 @@ import inf_funcs
 def infer(number,message,spl_txt,db_data):
 
     if db_data != None:
-     db_phone = db_data[0]
-     db_origin = db_data[1]
-     db_destination = db_data[2]
+        db_phone = db_data[0]
+        db_origin = db_data[1]
+        db_destination = db_data[2]
     else: 
-     sessions.insert(number)
-     db_data = sessions.retrive_data(number)
-     db_phone = db_data[0]
-     db_origin = db_data[1]
-     db_destination = db_data[2]
+        sessions.insert(number)
+        db_data = sessions.retrive_data(number)
+        db_phone = db_data[0]
+        db_origin = db_data[1]
+        db_destination = db_data[2]
 
-    number = long(number)
-    db_phone = long(db_phone)
-    sep = " "
-    new_msg = sep.join(spl_txt)
-    
-    operator = spl_txt[0]
-    print operator
-    print "-- operator"
-    print db_phone
-    print "-- phone on db"
-    print db_origin
-    print "-- origin on db"
-    print db_destination    
-    print "-- dest on db"
-    #******************************************************
-    #Do NOT remove the commenting!
-    #******************************************************
-    
-    #check to see what operator we are using as defined in 'operator'
+        number = long(number)
+        db_phone = long(db_phone)
+        sep = " "
+        new_msg = sep.join(spl_txt)
+
+        operator = spl_txt[0]
+        print operator
+        print "-- operator"
+        print db_phone
+        print "-- phone on db"
+        print db_origin
+        print "-- origin on db"
+        print db_destination    
+        print "-- dest on db"
+        #******************************************************
+        #Do NOT remove the commenting!
+        #******************************************************
+
+        #check to see what operator we are using as defined in 'operator'
 
         if operator == None:
             #now check to see what existing fields have been written to
@@ -49,7 +49,7 @@ def infer(number,message,spl_txt,db_data):
                 #take the origin that has been sent and add to db, then google
                 inf_funcs.add_org_google(number,message)
                 return
- 
+
             elif (db_origin == None) and (db_destination == None): #neither have been populated, we assume starting with origin
                 #take the origin, explain decision and ask for destination
                 inf_funcs.inf_org(number,message)
@@ -81,6 +81,6 @@ def infer(number,message,spl_txt,db_data):
             else:
                 inf_funcs.dest_plz
                 return
-        else
+        else:
             inf_funcs.error(number)
-    
+            return
