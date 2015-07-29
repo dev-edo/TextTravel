@@ -8,6 +8,13 @@ def tube(number, message):
     data = json.load(response)
 
     switch = False
+    
+    if (line.lower() == "hammersmith and city") or (line.lower() == "hammersmith") or (line.lower() == "hammersmith & city"):
+        line = "hammersmith-city"
+
+    if (line.lower() == "waterloo and city") or (line.lower() == "waterloo") or (line.lower() == "waterloo & city"):
+        line = "waterloo-city"
+    
     line = message
 
     for x in data:
