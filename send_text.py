@@ -1,5 +1,5 @@
 ﻿import config
-
+import log
 def text( number,message ): 
     from clockwork import clockwork
  
@@ -12,8 +12,8 @@ def text( number,message ):
         )
  
     response = api.send(message)
-
-    print(message) 
+    log.log(message)
+    
  
     if response.success:
         print (response.id)
