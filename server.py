@@ -64,7 +64,7 @@ def texttravel(environ, start_response):
 
 httpd = make_server(
    'localhost', # The host name.
-   80, # A port number where to wait for the request.
+   8051, # A port number where to wait for the request.
    texttravel # Our application object name, in this case a function.
    )
 
