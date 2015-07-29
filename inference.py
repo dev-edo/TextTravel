@@ -144,13 +144,6 @@ def infer(number,message,spl_txt,db_data):
             elif (db_origin == None) and (db_destination != None):  #TODO: update if
                 inf_funcs.origin_plz
                 return
->>>>>>> 708fd602614e4553f0136fcfc39c44283013ab50
-            else:
-                inf_funcs.error(number)
-                return
-<<<<<<< HEAD
-        return
-=======
         elif (operator == 'return') and (db_origin != None) and (db_destination != None):
             #swap stored values around, and run google function
             inf_funcs.google_it(number, db_destination, db_origin)
@@ -158,4 +151,3 @@ def infer(number,message,spl_txt,db_data):
         else:
             inf_funcs.error(number)
             return
->>>>>>> 708fd602614e4553f0136fcfc39c44283013ab50
