@@ -5,6 +5,7 @@ import sessions
 import tube
 import send_text
 import google
+import inference
 def texttravel(environ, start_response):
     response_body = ""
 
@@ -46,142 +47,11 @@ def texttravel(environ, start_response):
     if operator == 'help':
         send_text.text(number,'To get tube status, "tube {line}", for route info, "to {place}" and "from {place}"')
         return response_body
+    else:
+      inference.infer(number,content)
 
     
-        #make a sesson
-    if operator == 'to':
-      if db_phone == None:
-        sessions.insert(number)
-
-        if (db_origin != None) and (db_destination != None):
-          routes = google.google(db_origin,db_destination)
-          routes = routes.join()
-          send_text.text(number, routes)
-          return response_body
-        else:
-          sessions.add_destination(number, item)
-        if db_destination == None:
-          send_text.text(number, 'Origin now please')
-        else: 
-          routes = google.google(db_origin,db_destination)
-          routes = routes.join()
-          send_text.text(number, routes)
-          return response_body
-      else:
-          if (db_origin != None) and (db_destination != None):
-            routes = google.google(db_origin,db_destination)
-            routes = routes.join()
-            send_text.text(number, routes)
-            return response_body
-            pass
-          else:
-            if db_origin == None:
-              send_text.text(number, 'Origin now please')
-            else: 
-              routes = google.google(db_origin,db_destination)
-              routes = routes.join()
-              send_text.text(number, routes)
-              return response_body
-              pass
-    if (operator == 'from'):
-        if db_phone == None:
-          sessions.insert(number)
-
-          if (db_origin != None) and (db_destination != None):
-            routes = google.google(db_origin,db_destination)
-            routes = routes.join()
-            send_text.text(number, routes)
-            return response_body
-            
-          else:
-            sessions.add_origin(number, item)
-          if db_destination == None:
-            send_text.text(number, 'Destination now please')
-          else: 
-            routes = google.google(db_origin,db_destination)
-            routes = routes.join()
-            send_text.text(number, routes)
-            return response_body
-        else:
-          if (db_origin != None) and (db_destination != None):
-            routes = google.google(db_origin,db_destination)
-            routes = routes.join()
-            send_text.text(number, routes)
-            return response_body
-          else:
-            if db_destination == None:
-              send_text.text(number, 'Destination now please')
-            else: 
-              routes = google.google(db_origin,db_destination)
-              routes = routes.join()
-              send_text.text(number, routes)
-              return response_body
-
-    elif (db_origin != None):
-      if db_phone == None:
-          sessions.insert(number)
-
-          if (db_origin != None) and (db_destination != None):
-            routes = google.google(db_origin, db_destination)
-            routes = routes.join()
-            send_text.text(number, routes)
-            return response_body
-            
-          else:
-            sessions.add_destination(number, item)
-          if db_destination == None:
-            send_text.text(number, 'Destination now please')
-          else: 
-            routes = google.google(db_origin,db_destination)
-            routes = routes.join()
-            send_text.text(number, routes)
-            return response_body
-      else:
-        if (db_origin != None) and (db_destination != None):
-          routes = google.google(db_origin,db_destination)
-          routes = routes.join()
-          send_text.text(number, routes)
-          return response_body
-        else:
-          if db_origin == None:
-            send_text.text(number, 'Origin now please')
-          else: 
-            routes = google.google(db_origin,db_destination)
-            routes = routes.join()
-            send_text.text(number, routes)
-            return response_body
-    elif (db_destination != None):
-      if db_phone == None:
-          sessions.insert(number)
-
-          if (db_origin != None) and (db_destination != None):
-            routes = google.google(db_origin,db_destination)
-            routes = routes.join()
-            send_text.text(number, routes)
-            return response_body
-          else:
-            sessions.add_origin(number, item)
-          if db_destination == None:
-            send_text.text(number, 'Destination now please')
-          else: 
-            routes = google.google(db_origin,db_destination)
-            routes = routes.join()
-            send_text.text(number, routes)
-            return response_body
-      else:
-        if (db_origin != None) and (db_destination != None):
-          routes = google.google(db_origin,db_destination)
-          routes = routes.join()
-          send_text.text(number, routes)
-          return response_body
-        else:
-          if db_destination == None:
-            send_text.text(number, 'Destination now please')
-          else: 
-            routes = google.google(db_origin,db_destination)
-            routes = routes.join()
-            send_text.text(number, routes)
-            return response_body
+    
     
     return response_body
 
@@ -189,7 +59,7 @@ def texttravel(environ, start_response):
 
 httpd = make_server(
    'localhost', # The host name.
-   8051, # A port number where to wait for the request.
+   80, # A port number where to wait for the request.
    texttravel # Our application object name, in this case a function.
    )
 

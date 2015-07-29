@@ -33,9 +33,10 @@ def infer(number,message):
 			if (db_origin == None) and (db_destination != None): 
 				#if there is nothing in origin and we have a dest for this number
 				#take the origin that has been sent and add to db, then google
-			if (db_origin != None) and (db_destination == None): #if we have origin but no destination
+			elif (db_origin != None) and (db_destination == None):
+				#if we have origin but no destination
 				#take the dest that has been sent and add to db, then google
-			if (db_origin == None) and (db_destination == None): #neither have been populated, we assume starting with origin
+			elif (db_origin == None) and (db_destination == None): #neither have been populated, we assume starting with origin
 				#take the origin, explain decision and ask for destination
 		if operator == 'to':
 			#we have a destination 
