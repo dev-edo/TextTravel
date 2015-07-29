@@ -16,6 +16,14 @@ def infer(number,message,spl_txt,db_data):
      db_destination = db_data[2]
     
     operator = spl_txt[0]
+    print operator
+    print "-- operator"
+    print db_phone
+    print "-- phone on db"
+    print db_origin
+    print "-- origin on db"
+    print db_destination
+    print "-- dest on db"
     #******************************************************
     #Do NOT remove the commenting!
     #******************************************************
