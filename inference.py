@@ -1,4 +1,4 @@
-import help
+﻿import help
 import sessions
 import tube
 import send_text
@@ -17,7 +17,7 @@ else:
     db_phone = db_data[0]
     db_origin = db_data[1]
     db_destination = db_data[2]
-    
+
 operator = spl_txt[0]
 
 
