@@ -3,12 +3,11 @@
 class Session:
     """Represents a session (or conversation) for a single phone number."""
 
-    origin = None
-    destination = None
-
-    def __init__(self, mobile_number):
+    def __init__(self, mobile_number, origin = None, destination = None):
         assert mobile_number != None
         self._mobile_number = mobile_number
+        self.origin = origin
+        self.destination = destination
 
     @property
     def mobile_number(self):
@@ -31,16 +30,16 @@ class SessionStore:
     """Encapsulates the persistence and retrieval of the state of a session,
        on a per-mobile number basis."""
 
-    def storeSession(self, session):
+    def store_session(self, session):
         """Persists the specified session in the store, overwriting any existing
            session with the mobile number."""
         raise NotImplementedError("Subclass must implement abstract method")
 
-    def clearSession(self, mobile_number):
+    def clear_session(self, mobile_number):
         """Removes any session with the specified mobile number from the store."""
         raise NotImplementedError("Subclass must implement abstract method")
 
-    def retrieveSession(self, mobile_number):
+    def retrieve_session(self, mobile_number):
         """Retrieves a session form the store with the specified mobile number.
            returns None if there is no such session in the store."""
         raise NotImplementedError("Subclass must implement abstract method")

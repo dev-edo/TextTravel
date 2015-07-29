@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>65c1a453-cda4-4952-af22-60eaadd7fed8</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>persistence\tests.py</StartupFile>
+    <StartupFile>console.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -27,12 +27,26 @@
     <InterpreterReference Include="{9a7a9026-48c1-4688-9d5d-e5699d47d074}\2.7" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="console.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="destination_receive.py" />
     <Compile Include="google.py" />
     <Compile Include="help.py" />
     <Compile Include="inference.py" />
+    <Compile Include="messages\console.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="messages\message.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="messages\tests.py" />
+    <Compile Include="messages\__init__.py" />
+    <Compile Include="message_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="origin_recieve.py" />
-    <Compile Include="persistence\memorysession.py">
+    <Compile Include="persistence\memory.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="persistence\session.py">
@@ -47,6 +61,7 @@
     <Compile Include="send_text.py" />
     <Compile Include="server.py" />
     <Compile Include="sessions.py" />
+    <Compile Include="tests.py" />
     <Compile Include="tube.py" />
   </ItemGroup>
   <ItemGroup>
@@ -55,6 +70,7 @@
     <Content Include="REQUIREMENTS.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="messages\" />
     <Folder Include="persistence\" />
   </ItemGroup>
   <PropertyGroup>

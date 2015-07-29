@@ -1,10 +1,14 @@
-from wsgiref.simple_server import make_server
+﻿from wsgiref.simple_server import make_server
 from cgi import parse_qs, escape
 import help
 import sessions
 import tube
 import send_text
 import google
+
+
+
+
 def texttravel(environ, start_response):
     response_body = ""
 

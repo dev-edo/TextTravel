@@ -1,1 +1,1 @@
-__all__ = ["session", "memorysession"]
+﻿__all__ = ["session", "memory"]
