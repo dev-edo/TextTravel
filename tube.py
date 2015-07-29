@@ -1,4 +1,4 @@
-﻿import send_text
+import send_text
 import urllib2
 import json
 
@@ -9,6 +9,15 @@ def tube(number, message):
 
     switch = False
     line = message
+    
+    hm = ["hammersmith and city", "hammersmith", "hammersmith & city"]
+    if line.lower() == hm:
+        line = "hammersmith-city"
+        
+    wc = ["waterloo and city", "waterloo", "waterloo & city"]
+    if line.lower() == wc:
+        line = "waterloo-city"
+
 
     for x in data:
         if x["id"] == line.lower():
