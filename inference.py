@@ -3,6 +3,8 @@ import sessions
 import send_text
 import google
 import inf_funcs
+import tube
+import bus
 
 def infer(number,message,spl_txt,db_data):
 
@@ -44,10 +46,6 @@ def infer(number,message,spl_txt,db_data):
         if operator == 'bus':
             item = spl_txt[1]
             bus.bus(number, item)
-            return response_body
-        if operator == 'return':
-            pass
-            #edo's return function
             return response_body
         else:
           route(number,content,spl_txt,db_data)
