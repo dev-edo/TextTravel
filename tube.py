@@ -11,11 +11,11 @@ def tube(number, message):
 
     switch = False
     
-    #if (message.lower() == "hammersmith and city") or (message.lower() == "hammersmith") or (message.lower() == "hammersmith & city"):
-    #    message = "hammersmith-city"
+    if (message.lower() == "hammersmith and city") or (message.lower() == "hammersmith") or (message.lower() == "hammersmith & city"):
+        message = "hammersmith-city"
 
-    #if (message.lower() == "waterloo and city") or (message.lower() == "waterloo") or (message.lower() == "waterloo & city"):
-    #    message = "waterloo-city"
+    if (message.lower() == "waterloo and city") or (message.lower() == "waterloo") or (message.lower() == "waterloo & city"):
+        message = "waterloo-city"
 
     for x in data:
         if x["id"] == message.lower():
@@ -26,13 +26,13 @@ def tube(number, message):
         if "reason" in x["lineStatuses"][0]:
             switch = True
             print "Reason sent"
-            send2 = "Issue: " + x["lineStatuses"][0]["reason"]
+        send2 = "Issue: " + x["lineStatuses"][0]["reason"]
         send = x["name"].title() + " Route: " + x["lineStatuses"][0]["statusSeverityDescription"]
 
-    if switch is True:
-        send_text.text(number, send)
-        time.sleep(3)
-        send_text.text(number, send2)
+        if switch is True:
+            send_text.text(number, send)
+            time.sleep(3)
+            send_text.text(number, send2)
 
-    if switch is False:
-        send_text.text(number, 'Not a real line!')
+        if switch is False:
+            send_text.text(number, 'Not a real line!')
