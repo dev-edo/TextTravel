@@ -7,7 +7,7 @@ import tube
 import bus
 
 def infer(number,message,spl_txt,db_data):
-
+    print "AM I RUNNING JACOB?!??!"
     if db_data != None:
         db_phone = db_data[0]
         db_origin = db_data[1]
