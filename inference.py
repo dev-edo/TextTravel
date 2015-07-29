@@ -14,6 +14,10 @@ def infer(number,message,spl_txt,db_data):
      db_phone = db_data[0]
      db_origin = db_data[1]
      db_destination = db_data[2]
+
+    number = long(number)
+    db_phone = long(db_phone)
+    new_msg = join(spl_txt)
     
     operator = spl_txt[0]
     print operator
@@ -54,7 +58,7 @@ def infer(number,message,spl_txt,db_data):
         if operator == 'to':
             #we have a destination 
             #write to the database
-            sessions.add_destination(number, spl_txt[1:])
+            sessions.add_destination(number, new_msg)
             if (db_origin != None) and (db_destination != None):
                 step_details = google.directions(db_origin, db_destination)
                 send_text.text(number,step_details)
@@ -67,7 +71,7 @@ def infer(number,message,spl_txt,db_data):
         if operator == 'from':
             #we have an origin 
             #write it to the db
-            sessions.add_origin(number, spl_txt[1:])
+            sessions.add_origin(number, new_msg)
             if (db_origin != None) and (db_destination != None):
                 #Google
                 step_details = google.directions(db_origin, db_destination)
