@@ -3,7 +3,7 @@ import sessions
 import send_text
 import google
 
-def infer(number,message,spl_text,db_data):
+def infer(number,message,spl_txt,db_data):
 
     if db_data != None:
      db_phone = db_data[0]
