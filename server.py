@@ -6,7 +6,7 @@ import tube
 import send_text
 import google
 import inference
-# import bus
+import bus
 def texttravel(environ, start_response):
     response_body = ""
 
@@ -49,10 +49,10 @@ def texttravel(environ, start_response):
     if operator == 'help':
         send_text.text(number,'To get tube status, "tube {line}", for route info, "to {place}" and "from {place}"')
         return response_body
-    #if operator == 'bus':
-    #    item = spl_txt[1]
-    #    bus.bus(number, spl_txt[1])
-    #    return response_body
+    if operator == 'bus':
+        item = spl_txt[1]
+        bus.bus(number, spl_txt[1])
+        return response_body
     else:
       inference.infer(number,content,spl_txt,db_data)
 
