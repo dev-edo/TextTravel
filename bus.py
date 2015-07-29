@@ -8,14 +8,13 @@ def bus(number, message):
     data = json.load(response)
 
     switch = False
-    message = message.lower()
 
     for x in data:
-        if x["id"] == message:
+        if x["id"] == message.lower():
             switch = True
             print x["name"]
             print x["lineStatuses"][0]["statusSeverityDescription"]
-            send = x["Name"].title() + " Route: " + x["lineStatuses"][0]["statusSeverityDescription"]
+            send = x["Name"].upper() + " Route: " + x["lineStatuses"][0]["statusSeverityDescription"]
 
     if switch is True:
         send_text.text(number, send)
