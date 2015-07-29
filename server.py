@@ -38,7 +38,10 @@ def texttravel(environ, start_response):
     
     operator = spl_txt[0]
     
+    inference.route(number,message,spl_txt,db_data)
 
+<<<<<<< HEAD
+=======
     
 
     if operator == 'tube':
@@ -63,6 +66,7 @@ def texttravel(environ, start_response):
     
     
     
+>>>>>>> 708fd602614e4553f0136fcfc39c44283013ab50
     return response_body
 
 
