@@ -3,22 +3,6 @@ import sessions
 import send_text
 import google
 
-content = content.lower()
-spl_txt = content.split()
-db_data = sessions.retrive_data(number)
-if db_data != None:
-    db_phone = db_data[0]
-    db_origin = db_data[1]
-    db_destination = db_data[2]
-else: 
-    sessions.insert(number)
-    db_phone = db_data[0]
-    db_origin = db_data[1]
-    db_destination = db_data[2]
-
-operator = spl_txt[0]
-
-
 def infer(number,message):
     #******************************************************
     #Do NOT remove the commenting!
