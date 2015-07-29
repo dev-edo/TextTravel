@@ -38,7 +38,7 @@ def texttravel(environ, start_response):
     
     operator = spl_txt[0]
     
-    inference.route(number,message,spl_txt,db_data)
+    inference.infer(number,message,spl_txt,db_data)
 
     return response_body
 
