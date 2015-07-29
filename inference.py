@@ -55,11 +55,13 @@ def infer(number,message,spl_txt,db_data):
             elif (db_origin == None) and (db_destination == None): #neither have been populated, we assume starting with origin
                 #take the origin, explain decision and ask for destination
                 sessions.add_origin(number, message)
-                return "We have taken your last text as your origin, please send us your desired destination"
+                send_text.text(number, 'We have taken your last text as your origin, please send us your desired destination')
+                return
         if operator == 'to':
             #we have a destination 
             #write to the database
             sessions.add_destination(number, new_msg)
+            send_text.text(number, 'Where is the end point of your journey?')
             if (db_origin != None) and (db_destination != None):
                 step_details = google.directions(db_origin, db_destination)
                 send_text.text(number,step_details)
@@ -67,12 +69,14 @@ def infer(number,message,spl_txt,db_data):
                 #Google
             else: 
                 #prompt for origin
-                return "Where is the start point of your journey?" 
+                send_text.text(number, 'Where is the start point of your journey?')
+                return
 
         if operator == 'from':
             #we have an origin 
             #write it to the db
             sessions.add_origin(number, new_msg)
+            send_text.text(number, 'Where is the start point of your journey?')
             if (db_origin != None) and (db_destination != None):
                 #Google
                 step_details = google.directions(db_origin, db_destination)
@@ -80,7 +84,8 @@ def infer(number,message,spl_txt,db_data):
                 return
             else:
                 #prompt for destination
-                return "Where is the destination of your journey? "
+                send_text.text(number, "What is your intended destination?")
+                return
     else:
         send_text.text(number,'Your message is not valid and we cannot proccess it.')
 
