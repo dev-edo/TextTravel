@@ -38,31 +38,8 @@ def texttravel(environ, start_response):
     
     operator = spl_txt[0]
     
+    inference.route(number,message,spl_txt,db_data)
 
-    
-
-    if operator == 'tube':
-        item = spl_txt[1]
-        tube.tube(number, spl_txt[1])
-        return response_body
-
-    if operator == 'help':
-        send_text.text(number,'To get tube status, "tube {line}", for route info, "to {place}" and "from {place}"')
-        return response_body
-    if operator == 'bus':
-        item = spl_txt[1]
-        bus.bus(number, item)
-        return response_body
-    if operator == 'return':
-        pass
-        #edo's return function
-        return response_body
-    else:
-      inference.infer(number,content,spl_txt,db_data)
-
-    
-    
-    
     return response_body
 
 
