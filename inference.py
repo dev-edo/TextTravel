@@ -1,4 +1,4 @@
-﻿import helpx
+﻿import help
 import sessions
 import send_text
 import google
