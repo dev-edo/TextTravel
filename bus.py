@@ -15,7 +15,7 @@ def bus(number, item):
             switch = True
             print x["name"]
             print x["lineStatuses"][0]["statusSeverityDescription"]
-            send = x["Name"].upper() + " Route: " + x["lineStatuses"][0]["statusSeverityDescription"]
+            send = x["name"].upper() + " Route: " + x["lineStatuses"][0]["statusSeverityDescription"]
 
     if switch is True:
         send_text.text(number, send)
