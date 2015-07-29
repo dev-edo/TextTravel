@@ -23,7 +23,7 @@ operator = spl_txt[0]
 
 def infer(number,message):
     #******************************************************
-    #If you dare remove the commenting I will kill you Edo!
+    #Do NOT remove the commenting!
     #******************************************************
     #check to see whether any database vars exist (should ALWAYS run true)
     if number == db_phone: #check to see what operator we are using as defined in 'operator'
