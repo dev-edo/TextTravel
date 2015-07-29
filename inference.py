@@ -17,7 +17,7 @@ def infer(number,message,spl_txt,db_data):
 
     number = long(number)
     db_phone = long(db_phone)
-    new_msg = join(spl_txt)
+    new_msg = .join(spl_txt)
     
     operator = spl_txt[0]
     print operator
@@ -26,7 +26,7 @@ def infer(number,message,spl_txt,db_data):
     print "-- phone on db"
     print db_origin
     print "-- origin on db"
-    print db_destination
+    print db_destination    
     print "-- dest on db"
     #******************************************************
     #Do NOT remove the commenting!
