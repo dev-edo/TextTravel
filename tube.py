@@ -11,11 +11,11 @@ def tube(number, message):
 
     switch = False
     
-    if (message.lower() == "hammersmith and city") or (message.lower() == "hammersmith") or (message.lower() == "hammersmith & city"):
-        message = "hammersmith-city"
+    #if (message.lower() == "hammersmith and city") or (message.lower() == "hammersmith") or (message.lower() == "hammersmith & city"):
+    #    message = "hammersmith-city"
 
-    if (message.lower() == "waterloo and city") or (message.lower() == "waterloo") or (message.lower() == "waterloo & city"):
-        message = "waterloo-city"
+    #if (message.lower() == "waterloo and city") or (message.lower() == "waterloo") or (message.lower() == "waterloo & city"):
+    #    message = "waterloo-city"
 
     for x in data:
         if x["id"] == message.lower():
