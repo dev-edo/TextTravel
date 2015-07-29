@@ -9,37 +9,41 @@ import inference
 import bus
 def texttravel(environ, start_response):
     response_body = ""
-
+    print "1"
     status = '200 OK'
     response_headers = [('Content-Type', 'text/plain'),
                         ('Content-Length', str(len(response_body)))]
     start_response(status, response_headers)
-
+    print "2"
     d = parse_qs(environ['QUERY_STRING'])
     content = d.get('content', [''])[0] 
     from_sender = d.get('from', [''])[0]
     number = from_sender
-
+    print "3"
 
 
     content = content.lower()
     spl_txt = content.split()
     db_data = sessions.retrive_data(number)
     if db_data != None:
+        print "4"
         db_phone = db_data[0]
         db_origin = db_data[1]
         db_destination = db_data[2]
+        print "5"
     else: 
+        print "6"
         sessions.insert(number)
         db_data = sessions.retrive_data(number)
         db_phone = db_data[0]
         db_origin = db_data[1]
         db_destination = db_data[2]
+        print "7"
     
     operator = spl_txt[0]
-    
+    print "8"
     inference.infer(number,content,spl_txt,db_data)
-
+    print "9"
     return response_body
 
 
