@@ -96,11 +96,11 @@ def route(number,message,spl_txt,db_data, operator):
         #we have an origin 
         #write it to the db
         sessions.add_origin(number, new_msg)
-        if (db_origin != None) and (db_destination != None):  #TODO: update if
+        if db_destination != None:  #TODO: update if
             inf_funcs.google_it(number, db_origin, db_destination)
             return
-        elif (db_origin == None) and (db_destination != None):  #TODO: update if
-            inf_funcs.origin_plz(number)
+        else:  #TODO: update if
+            inf_funcs.dest_plz(number)
             return
     elif (operator == 'return') and (db_origin != None) and (db_destination != None):
         print "20"
