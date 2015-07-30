@@ -52,8 +52,10 @@ def google_it(mobile, origin, destination):
     if step_details == []:
         send_text.text(mobile, "Unfourtunatley, we cannot find directions for you. Sorry for any inconvinience caused.")
     else:
+        i = 1
         for step in step_details:
-            send_text.text(mobile,step)
+            send_text.text(mobile, str(i) + ") " + step)
+            i += 1
     sessions.delete(mobile)
     return
 
