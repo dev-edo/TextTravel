@@ -33,6 +33,8 @@ def process(mobile, message):
         bus.bus(mobile, " ".join(message_array[1:]))
     elif operator == "tube":
         tube.tube(mobile, " ".join(message_array[1:]))
+    elif operator == "help":
+        send_text.text(mobile, "Text tube {line} for tube status, bus {number} for bus status and To {dest} then From {org} for route info")
 
 
 
