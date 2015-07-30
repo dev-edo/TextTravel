@@ -1,4 +1,4 @@
-import sessions, send_text, google
+import sessions, send_text, google, time
 
 def process(mobile, message):
     # extract the first word, and call it "operator"
@@ -56,6 +56,7 @@ def google_it(mobile, origin, destination):
         for step in step_details:
             send_text.text(mobile, str(i) + ") " + step)
             i += 1
+            time.sleep(3)
     sessions.delete(mobile)
     return
 
