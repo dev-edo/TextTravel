@@ -68,6 +68,8 @@ def infer(number,message,spl_txt,db_data):
 
 #check to see what operator we are using as defined in 'operator'
 def route(number,message,spl_txt,db_data, operator):
+    sep = " "
+    new_msg = sep.join(spl_txt)
     print "16"
     if operator == None:
         #now check to see what existing fields have been written to
