@@ -23,7 +23,7 @@ def process(mobile, message):
 
     #ok, how about "to"
     elif operator == "to":
-        process_origin(mobile, message_array, origin, destination)
+        process_origin(mobile, " ".join(message_array[1:]), origin, destination)
     # so we don't know the operator.
     else:
         # Do we have a saved origin?
