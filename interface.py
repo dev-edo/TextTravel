@@ -40,7 +40,6 @@ def process(mobile, message):
             dest_req(mobile)
 
 def google_it(mobile, origin, destination):
-    retrive_db(mobile)
     #print "Google_it called"
     #print "Origin is: "+str(origin)+". Type is "+str(type(origin))
     #print "Destination is: "+str(destination)+". Type is "+str(type(destination))
