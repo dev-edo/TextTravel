@@ -20,8 +20,11 @@ def google_it(number, origin, destination):
     print "Destination is: "+str(destination)+". Type is "+str(type(destination))
     step_details = google.directions(origin, destination)  #TODO: make function
     print "step_details is: "+str(step_details)+". Type is "+str(type(step_details))
-    for step in step_details:
-        send_text.text(number,step)
+    if step_details == []:
+        send_text.text(number, "Unfourtunatley, we cannot find directions for you. Sorry for any inconvinience caused.")
+    else:
+        for step in step_details:
+            send_text.text(number,step)
     sessions.delete(number)
     return
 
