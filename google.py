@@ -23,7 +23,10 @@ def directions(origin, destination):
                 dep_stop = step.find(".//transit_details/departure_stop/name").text
             except AttributeError:
                 dep_stop = "Unknown"
-            dep_time = step.find(".//transit_details/departure_time/text").text
+            try:
+                dep_time = step.find(".//transit_details/departure_time/text").text
+            except AttributeError:
+                dec_stop = "Unknown"
             arr_stop = step.find(".//transit_details/arrival_stop/name").text
             arr_time = step.find(".//transit_details/arrival_time/text").text
             if step.find(".//transit_details/line/short_name") != None:

@@ -53,7 +53,7 @@ def google_it(mobile, origin, destination):
     step_details = google.directions(origin, destination)  #TODO: make function
     #print "step_details is: "+str(step_details)+". Type is "+str(type(step_details))
     if step_details == []:
-        send_text.text(mobile, "Unfourtunatley, we cannot find directions for you. Sorry for any inconvinience caused.")
+        send_text.text(mobile, "Unfortunately , we cannot find directions for you. Sorry for any inconvenience caused.")
     else:
         i = 1
         for step in step_details:
