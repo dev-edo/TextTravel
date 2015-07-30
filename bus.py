@@ -5,7 +5,7 @@ import time
 
 
 def bus(number, item):
-    api = clockwork.API("064bec0b3417d7f51217088f2cfda746ab26a84c")
+    
     switch = False
 
     response = urllib2.urlopen('https://api.tfl.gov.uk/line/mode/bus/status')
