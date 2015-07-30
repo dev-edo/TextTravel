@@ -10,12 +10,12 @@ def retrive_db(number):
 
 def error(number):
     retrive_db(number)
-    send_text.text('A fatal error occurred handling your request')
+    send_text.text(number, 'A fatal error occurred handling your request')
     return
 
-def google_it(number):
+def google_it(number, origin, destination):
     retrive_db(number)
-    step_details = google.directions(db_origin, db_destination)  #TODO: make function
+    step_details = google.directions(origin, destination)  #TODO: make function
     send_text.text(number,step_details)
     return
 
@@ -29,17 +29,17 @@ def dest_plz(number):
     send_text.text(number, 'Where is the end point of your journey?')
     return
 
-def add_dest_google(number,message):
+def add_dest_google(number,message, origin, destination):
     retrive_db(number)
     sessions.add_destination(number, message)
-    step_details = google.directions(db_origin, db_destination)
+    step_details = google.directions(origin, destination)
     send_text.text(number,step_details)
     return
 
-def add_org_google(number,message):
+def add_org_google(number,message, origin, destination):
     retrive_db(number)
     sessions.add_origin(number, message)      #TODO: make function
-    step_details = google.directions(db_origin, db_destination)
+    step_details = google.directions(origin, destination)
     send_text.text(number,step_details)
     return
 
