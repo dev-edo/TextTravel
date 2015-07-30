@@ -35,6 +35,8 @@ def process(mobile, message):
             # then this must be the destination
             destnation = " ".join(message_array)
             # google using the saved origin and the rest of the message
+            print "Origin is: "     +str(origin)     +". Type is "+str(type(origin))
+            print "Destination is: "+str(destination)+". Type is "+str(type(destination))
             google_it(mobile, origin, destination)
         # we dont have a saved origin, so this must be it
         else:
