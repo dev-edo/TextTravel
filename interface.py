@@ -1,4 +1,4 @@
-import sessions, send_text, google, time
+import sessions, send_text, google, time, bus
 
 def process(mobile, message):
     # extract the first word, and call it "operator"
@@ -28,6 +28,14 @@ def process(mobile, message):
     elif operator == "reset":
         sessions.delete(mobile)
         send_text.text(mobile, "Reset successful!")
+
+    elif operator == "bus":
+        bus.bus(mobile, " ".join(message_array[1:]))
+    elif operator == "tube":
+        tube.tube(mobile, " ".join(message_array[1:]))
+
+
+
     # so we don't know the operator.
     else:
         # Do we have a saved origin?
