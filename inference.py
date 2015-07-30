@@ -100,18 +100,18 @@ def route(number,message,spl_txt,db_data, operator):
             print "g"
             return
     elif operator == 'to':
-        print "18"
+        print "reached to operator inside inference.py"
         #we have a destination 
         #write to the database
-        sessions.add_destination(number, new_msg)
+        print spl_txt[1:]
+        sessions.add_destination(number, spl_txt[1:])
         if (db_origin != None) and (db_destination != None):
+            print "provided we have both pieces of information"
             inf_funcs.google_it(number)
             return
-        elif (db_origin != None) and (db_destination == None):
-            inf_funcs.dest_plz
-            return
         else: 
-            inf_funcs.origin_plz
+            print "asking for the origin"
+            inf_funcs.origin_plz(number)
             return
 
     elif operator == 'from':
@@ -123,7 +123,7 @@ def route(number,message,spl_txt,db_data, operator):
             inf_funcs.google_it(number)
             return
         elif (db_origin == None) and (db_destination != None):  #TODO: update if
-            inf_funcs.origin_plz
+            inf_funcs.origin_plz(number)
             return
     elif (operator == 'return') and (db_origin != None) and (db_destination != None):
         print "20"
