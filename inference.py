@@ -97,7 +97,7 @@ def route(number,message,spl_txt,db_data, operator):
         #write it to the db
         sessions.add_origin(number, new_msg)
         if db_destination != None:  #TODO: update if
-            inf_funcs.google_it(number, db_origin, db_destination)
+            inf_funcs.google_it(number, new_msg, db_destination)
             return
         else:  #TODO: update if
             inf_funcs.dest_plz(number)
