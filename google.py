@@ -19,7 +19,10 @@ def directions(origin, destination):
             step_details.append(walk_to + ". It will take " + time_to + ".")
         else:
             html_inst = step.find("./html_instructions").text
-            dep_stop = step.find(".//transit_details/departure_stop/name").text
+            try:
+                dep_stop = step.find(".//transit_details/departure_stop/name").text
+            except AttributeError:
+                dep_stop = "Unknown"
             dep_time = step.find(".//transit_details/departure_time/text").text
             arr_stop = step.find(".//transit_details/arrival_stop/name").text
             arr_time = step.find(".//transit_details/arrival_time/text").text
