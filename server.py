@@ -29,20 +29,8 @@ def texttravel(environ, start_response):
     content = content.lower()
     spl_txt = content.split()
     db_data = sessions.retrive_data(number)
-    if db_data != None:
-        #print "4"
-        db_phone = db_data[0]
-        db_origin = db_data[1]
-        db_destination = db_data[2]
-        #print "5"
-    else: 
-        #print "6"
+    if db_data == None:
         sessions.insert(number)
-        db_data = sessions.retrive_data(number)
-        db_phone = db_data[0]
-        db_origin = db_data[1]
-        db_destination = db_data[2]
-        #print "7"
     
     operator = spl_txt[0]
     #print "8"
