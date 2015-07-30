@@ -23,45 +23,45 @@ def infer(number,message,spl_txt,db_data):
         db_destination = db_data[2]
         print "4"
 
-        number = long(number)
-        print "5"
-        db_phone = long(db_phone)
-        print "6"
-        sep = " "
-        print "7"
-        new_msg = sep.join(spl_txt)
-        print "8"
-        operator = spl_txt[0]
-        print operator
-        print "-- operator"
-        print db_phone
-        print "-- phone on db"
-        print db_origin
-        print "-- origin on db"
-        print db_destination    
-        print "-- dest on db"
-        print "9"
+    number = long(number)
+    print "5"
+    db_phone = long(db_phone)
+    print "6"
+    sep = " "
+    print "7"
+    new_msg = sep.join(spl_txt)
+    print "8"
+    operator = spl_txt[0]
+    print operator
+    print "-- operator"
+    print db_phone
+    print "-- phone on db"
+    print db_origin
+    print "-- origin on db"
+    print db_destination    
+    print "-- dest on db"
+    print "9"
 
-        if operator == 'tube':
-            print "10"
-            item = spl_txt[1]
-            tube.tube(number, spl_txt[1])
-            print "11"
-            return response_body
+    if operator == 'tube':
+        print "10"
+        item = spl_txt[1]
+        tube.tube(number, spl_txt[1])
+        print "11"
+        return response_body
 
-        elif operator == 'help':
-            print "12"
-            send_text.text(number,'To get tube status, "tube {line}", for route info, "to {place}" and "from {place}"')
-            return response_body
-        elif operator == 'bus':
-            print "13"
-            item = spl_txt[1]
-            bus.bus(number, item)
-            return response_body
-        else:
-            print "14"
-            route(number,content,spl_txt,db_data)
-            print "15"
+    elif operator == 'help':
+        print "12"
+        send_text.text(number,'To get tube status, "tube {line}", for route info, "to {place}" and "from {place}"')
+        return response_body
+    elif operator == 'bus':
+        print "13"
+        item = spl_txt[1]
+        bus.bus(number, item)
+        return response_body
+    else:
+        print "14"
+        route(number,content,spl_txt,db_data)
+        print "15"
         #******************************************************
         #Do NOT remove the commenting!
         #******************************************************
