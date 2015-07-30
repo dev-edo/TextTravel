@@ -16,6 +16,8 @@ def add_origin(mobile, origin):
 
 def add_destination(mobile, destination):
     """ Adds the user's destination, finding the user via the mobile"""
+    print type(destination)
+    print type(mobile)
     cursor.execute('UPDATE sessions SET destination = ? WHERE mobile == ? ', (destination, mobile))
     conn.commit()
 
