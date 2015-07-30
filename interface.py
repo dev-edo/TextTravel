@@ -40,6 +40,7 @@ def process(mobile, message):
         else:
             # save the message as the origin
             origin = " ".join(message_array[1:])
+            sessions.add_origin(mobile, origin)
             # prompt for the destination
             dest_req(mobile)
 
