@@ -27,6 +27,7 @@ def process(mobile, message):
     #if they have asked to reset:
     elif operator == "reset":
         sessions.delete(mobile)
+        send_text.text(mobile, "Reset successful!")
     # so we don't know the operator.
     else:
         # Do we have a saved origin?
