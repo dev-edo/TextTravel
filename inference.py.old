@@ -95,9 +95,9 @@ def route(number,message,spl_txt,db_data, operator):
         print "19"
         #we have an origin 
         #write it to the db
-        sessions.add_origin(number, new_msg)
-        if db_destination != None:  #TODO: update if
-            inf_funcs.google_it(number, new_msg, db_destination)
+        sessions.add_origin(number, msg_string)
+        if db_destination != None:
+            inf_funcs.google_it(number, msg_string, db_destination)
             return
         else:  #TODO: update if
             inf_funcs.dest_plz(number)
@@ -109,6 +109,7 @@ def route(number,message,spl_txt,db_data, operator):
         return
     elif operator == "reset":
         sessions.delete(number)
+        send_text.text(number,'Session reset')
         return
     else:
         #now check to see what existing fields have been written to
