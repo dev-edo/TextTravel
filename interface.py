@@ -10,7 +10,7 @@ def process(mobile, message):
     #Is the operator "from"
     if operator == "from":
         #do we have a stored destination?
-        if sessions.retrive_data(mobile)[2] != None:
+        if destination != None:
             #google using the rest of the message and the stored destination
             google_it(mobile, " ".join(message_array[1:]), destination)
         # else:
@@ -33,13 +33,13 @@ def process(mobile, message):
         # Do we have a saved origin?
         if origin != None:
             # then this must be the destination
-            destnation = " ".join(message_array[1:])
+            destnation = " ".join(message_array)
             # google using the saved origin and the rest of the message
             google_it(mobile, origin, destination)
         # we dont have a saved origin, so this must be it
         else:
             # save the message as the origin
-            origin = " ".join(message_array[1:])
+            origin = " ".join(message_array)
             sessions.add_origin(mobile, origin)
             # prompt for the destination
             dest_req(mobile)
