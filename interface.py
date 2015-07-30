@@ -1,4 +1,4 @@
-import sessions, send_text
+import sessions, send_text, google
 
 def process(mobile, message):
     # extract the first word, and call it "operator"
