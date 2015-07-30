@@ -1,21 +1,76 @@
-# extract the first word, and call it "operator"
+import sessions, send_text
 
-#Is the operator "from"
-	#do we have a stored destination?
-		#google using the rest of the message and the stored destination
-	# else:
-		# save the rest of the message as the origin
-		# Request the destination
-#ok, how about "to"
-	# do we have a stored origin
-		# google using the stored origin and the rest of the message
-	# else:
-		# save the rest of the message as the destination
-		# Request the origin
-# so we don't know the operator.
-# Do we have a saved origin?
-	# then this must be the destination
-	# google using the saved origin and the rest of the message
-# we dont have a saved origin, so this must be it
-	# save the message as the origin
-	# prompt for the destination
+def process(mobile, message):
+    # extract the first word, and call it "operator"
+    message_array = message.split()
+    operator      = message_array[0]
+    data          = sessions.retrive_data(mobile)
+    origin        = data[1]
+    destination   = data[2]
+    #Is the operator "from"
+    if operator == "from":
+        #do we have a stored destination?
+        if sessions.retrive_data(mobile)[2] != None:
+            #google using the rest of the message and the stored destination
+            google_it(number, " ".join(message_array[1:]), destination)
+        # else:
+        else:
+            # save the rest of the message as the origin
+            origin = " ".join(message_array[1:])
+            session.add_origin(mobile, origin)
+            # Request the destination
+            dest_req(mobile)
+
+    #ok, how about "to"
+    elif operator == "to":
+        process_origin(mobile, message_array, origin, destination)
+    # so we don't know the operator.
+    else:
+        # Do we have a saved origin?
+        if origin != None:
+            # then this must be the destination
+            destnation = " ".join(message_array[1:])
+            # google using the saved origin and the rest of the message
+            google_it(number, origin, destination)
+        # we dont have a saved origin, so this must be it
+        else:
+            # save the message as the origin
+            origin = " ".join(message_array[1:])
+            # prompt for the destination
+            dest_req(number)
+
+def google_it(number, origin, destination):
+    retrive_db(number)
+    #print "Google_it called"
+    #print "Origin is: "+str(origin)+". Type is "+str(type(origin))
+    #print "Destination is: "+str(destination)+". Type is "+str(type(destination))
+    step_details = google.directions(origin, destination)  #TODO: make function
+    #print "step_details is: "+str(step_details)+". Type is "+str(type(step_details))
+    if step_details == []:
+        send_text.text(number, "Unfourtunatley, we cannot find directions for you. Sorry for any inconvinience caused.")
+    else:
+        for step in step_details:
+            send_text.text(number,step)
+    sessions.delete(number)
+    return
+
+def dest_req(number):
+    send_text.text(number, 'Where is the end point of your journey?')
+    return
+
+def origin_req(number):
+    send_text.text(number, 'Where is the start point of your journey?')
+    return
+
+def process_origin(mobile, message_array, origin, destination):
+    # do we have a stored origin
+    if origin != None:
+        # google using the stored origin and the rest of the message
+        google_it(number, origin, message_array[1:])
+    # else:
+    else:
+        # save the rest of the message as the destination
+        destination = message_array[1:]
+        sessions.add_destination(mobile, destination)
+        # Request the origin
+        origin_req(number)

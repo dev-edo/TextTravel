@@ -5,7 +5,7 @@ import sessions
 import tube
 import send_text
 import google
-import inference
+import interface
 import bus
 
 print "Server Restarted"
@@ -46,7 +46,7 @@ def texttravel(environ, start_response):
     
     operator = spl_txt[0]
     #print "8"
-    inference.infer(number,content,spl_txt,db_data)
+    interface.process(number,content)
     #print "9"
     return response_body
 
