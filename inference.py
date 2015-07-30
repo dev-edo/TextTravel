@@ -7,30 +7,30 @@ import tube
 import bus
 
 def infer(number,message,spl_txt,db_data):
-    print "AM I RUNNING JACOB?!??!  "
+    #print "AM I RUNNING JACOB?!??!  "
     if db_data != None:
-        print "1"
+        #print "1"
         db_phone = db_data[0]
         db_origin = db_data[1]
         db_destination = db_data[2]
-        print "2"
+        #print "2"
     else: 
-        print "3"
+        #print "3"
         sessions.insert(number)
         db_data = sessions.retrive_data(number)
         db_phone = db_data[0]
         db_origin = db_data[1]
         db_destination = db_data[2]
-        print "4"
+        #print "4"
 
     number = long(number)
-    print "5"
+    #print "5"
     db_phone = long(db_phone)
-    print "6"
+    #print "6"
     sep = " "
-    print "7"
+    #print "7"
     new_msg = sep.join(spl_txt)
-    print "8"
+    #print "8"
     operator = spl_txt[0]
     print operator
     print "-- operator"
@@ -40,7 +40,7 @@ def infer(number,message,spl_txt,db_data):
     print "-- origin on db"
     print db_destination    
     print "-- dest on db"
-    print "9"
+    #print "9"
 
     if operator == 'tube':
         print "10"
