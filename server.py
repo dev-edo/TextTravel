@@ -47,13 +47,13 @@ def texttravel(environ, start_response):
     return response_body
 
 
-
+print "a"
 httpd = make_server(
    'localhost', # The host name.
    8051, # A port number where to wait for the request.
    texttravel # Our application object name, in this case a function.
    )
-
+print "b"
 # Wait for a single request, serve it and quit.
 httpd.serve_forever()
-
+print "c"
