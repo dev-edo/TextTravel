@@ -108,10 +108,10 @@ def route(number,message,spl_txt,db_data, operator):
             inf_funcs.google_it(number)
             return
         elif (db_origin != None) and (db_destination == None):
-            inf_funcs.dest_plz
+            inf_funcs.dest_plz(number)
             return
         else: 
-            inf_funcs.origin_plz
+            inf_funcs.origin_plz(number)
             return
 
     elif operator == 'from':
@@ -123,7 +123,7 @@ def route(number,message,spl_txt,db_data, operator):
             inf_funcs.google_it(number)
             return
         elif (db_origin == None) and (db_destination != None):  #TODO: update if
-            inf_funcs.origin_plz
+            inf_funcs.origin_plz(number)
             return
     elif (operator == 'return') and (db_origin != None) and (db_destination != None):
         print "20"
