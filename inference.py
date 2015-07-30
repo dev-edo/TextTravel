@@ -66,66 +66,66 @@ def infer(number,message,spl_txt,db_data):
         #Do NOT remove the commenting!
         #******************************************************
 
-        #check to see what operator we are using as defined in 'operator'
-        def route(number,message,spl_txt,db_data):
-            print "16"
-            if operator == None:
-                #now check to see what existing fields have been written to
-                print "17"
-                if (db_origin != None) and (db_destination == None):
-                    print "a"
-                    #if we have origin but no destination
-                    #take the dest that has been sent and add to db, then google
-                    print "b"
-                    inf_funcs.add_dest_google(number,message)
-                    print "c"
-                    return
-                elif (db_origin == None) and (db_destination != None): 
-                    print "d"
-                    #if there is nothing in origin and we have a dest for this number
-                    #take the origin that has been sent and add to db, then google
-                    inf_funcs.add_org_google(number,message)
-                    print "e"
-                    return
+#check to see what operator we are using as defined in 'operator'
+def route(number,message,spl_txt,db_data):
+    print "16"
+    if operator == None:
+        #now check to see what existing fields have been written to
+        print "17"
+        if (db_origin != None) and (db_destination == None):
+            print "a"
+            #if we have origin but no destination
+            #take the dest that has been sent and add to db, then google
+            print "b"
+            inf_funcs.add_dest_google(number,message)
+            print "c"
+            return
+        elif (db_origin == None) and (db_destination != None): 
+            print "d"
+            #if there is nothing in origin and we have a dest for this number
+            #take the origin that has been sent and add to db, then google
+            inf_funcs.add_org_google(number,message)
+            print "e"
+            return
 
-                elif (db_origin == None) and (db_destination == None): #neither have been populated, we assume starting with origin
-                    #take the origin, explain decision and ask for destination
-                    print "f"
-                    inf_funcs.inf_org(number,message)
-                    print "g"
-                    return
-            elif operator == 'to':
-                print "18"
-                #we have a destination 
-                #write to the database
-                sessions.add_destination(number, new_msg)
-                if (db_origin != None) and (db_destination != None):
-                    inf_funcs.google_it(number)
-                    return
-                elif (db_origin != None) and (db_destination == None):
-                    inf_funcs.dest_plz
-                    return
-                else: 
-                    inf_funcs.origin_plz
-                    return
+        elif (db_origin == None) and (db_destination == None): #neither have been populated, we assume starting with origin
+            #take the origin, explain decision and ask for destination
+            print "f"
+            inf_funcs.inf_org(number,message)
+            print "g"
+            return
+    elif operator == 'to':
+        print "18"
+        #we have a destination 
+        #write to the database
+        sessions.add_destination(number, new_msg)
+        if (db_origin != None) and (db_destination != None):
+            inf_funcs.google_it(number)
+            return
+        elif (db_origin != None) and (db_destination == None):
+            inf_funcs.dest_plz
+            return
+        else: 
+            inf_funcs.origin_plz
+            return
 
-            elif operator == 'from':
-                print "19"
-                #we have an origin 
-                #write it to the db
-                sessions.add_origin(number, new_msg)
-                if (db_origin != None) and (db_destination != None):  #TODO: update if
-                    inf_funcs.google_it(number)
-                    return
-                elif (db_origin == None) and (db_destination != None):  #TODO: update if
-                    inf_funcs.origin_plz
-                    return
-            elif (operator == 'return') and (db_origin != None) and (db_destination != None):
-                print "20"
-                #swap stored values around, and run google function
-                inf_funcs.google_it(number, db_destination, db_origin)
-                return
-            else:
-                print "21"
-                inf_funcs.error(number)
-                return
+    elif operator == 'from':
+        print "19"
+        #we have an origin 
+        #write it to the db
+        sessions.add_origin(number, new_msg)
+        if (db_origin != None) and (db_destination != None):  #TODO: update if
+            inf_funcs.google_it(number)
+            return
+        elif (db_origin == None) and (db_destination != None):  #TODO: update if
+            inf_funcs.origin_plz
+            return
+    elif (operator == 'return') and (db_origin != None) and (db_destination != None):
+        print "20"
+        #swap stored values around, and run google function
+        inf_funcs.google_it(number, db_destination, db_origin)
+        return
+    else:
+        print "21"
+        inf_funcs.error(number)
+        return

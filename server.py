@@ -7,6 +7,9 @@ import send_text
 import google
 import inference
 import bus
+
+print "Server Restarted"
+
 def texttravel(environ, start_response):
     response_body = ""
     #print "1"
