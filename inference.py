@@ -82,7 +82,7 @@ def route(number,message,spl_txt,db_data, operator):
         #write to the database
         print msg_string
         sessions.add_destination(number, msg_string)
-        if (db_origin != None) and (db_destination != None):
+        if (db_origin != None and db_origin != "") and (db_destination != None and db_destination != ""):
             print "provided we have both pieces of information"
             inf_funcs.google_it(number, db_origin, db_destination)
             return
