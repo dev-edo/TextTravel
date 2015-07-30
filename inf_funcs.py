@@ -15,7 +15,11 @@ def error(number):
 
 def google_it(number, origin, destination):
     retrive_db(number)
+    print "Google_it called"
+    print "Origin is: "+str(origin)+". Type is "+str(type(origin))
+    print "Destination is: "+str(destination)+". Type is "+str(type(destination))
     step_details = google.directions(origin, destination)  #TODO: make function
+    print "step_details is: "+str(step_details)+". Type is "+str(type(step_details))
     send_text.text(number,step_details)
     return
 

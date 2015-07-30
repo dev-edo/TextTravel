@@ -73,7 +73,7 @@ def route(number,message,spl_txt,db_data, operator):
     db_phone = db_data[0]
     db_origin = db_data[1]
     db_destination = db_data[2]
-    msg_string = str(spl_txt[1:])
+    msg_string = " ".join(spl_txt[1:])
     print "16"
     
     if operator == 'to':
