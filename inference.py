@@ -60,7 +60,7 @@ def infer(number,message,spl_txt,db_data):
         return response_body
     else:
         print "14"
-        route(number,content,spl_txt,db_data)
+        route(number,message,spl_txt,db_data)
         print "15"
         #******************************************************
         #Do NOT remove the commenting!
