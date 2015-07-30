@@ -84,7 +84,7 @@ def route(number,message,spl_txt,db_data, operator):
         sessions.add_destination(number, msg_string)
         if (db_origin != None) and (db_destination != None):
             print "provided we have both pieces of information"
-            inf_funcs.google_it(number)
+            inf_funcs.google_it(number, db_origin, db_destination)
             return
         else: 
             print "asking for the origin"
@@ -97,7 +97,7 @@ def route(number,message,spl_txt,db_data, operator):
         #write it to the db
         sessions.add_origin(number, new_msg)
         if (db_origin != None) and (db_destination != None):  #TODO: update if
-            inf_funcs.google_it(number)
+            inf_funcs.google_it(number, db_origin, db_destination)
             return
         elif (db_origin == None) and (db_destination != None):  #TODO: update if
             inf_funcs.origin_plz(number)
@@ -105,7 +105,7 @@ def route(number,message,spl_txt,db_data, operator):
     elif (operator == 'return') and (db_origin != None) and (db_destination != None):
         print "20"
         #swap stored values around, and run google function
-        inf_funcs.google_it(number, db_destination, db_origin)
+        inf_funcs.google_it(number, db_origin, db_destination)
         return
     else:
         #now check to see what existing fields have been written to
@@ -115,14 +115,14 @@ def route(number,message,spl_txt,db_data, operator):
             #if we have origin but no destination
             #take the dest that has been sent and add to db, then google
             print "b"
-            inf_funcs.add_dest_google(number,message)
+            inf_funcs.add_dest_google(number,message, db_origin, db_destination)
             print "c"
             return
         elif (db_origin == None) and (db_destination != None): 
             print "d"
             #if there is nothing in origin and we have a dest for this number
             #take the origin that has been sent and add to db, then google
-            inf_funcs.add_org_google(number,message)
+            inf_funcs.add_org_google(number,message, db_origin, db_destination)
             print "e"
             return
 
