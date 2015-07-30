@@ -46,7 +46,7 @@ def process(mobile, message):
         send_text.text(mobile, "2) If you would like tube or bus status, text \"tube [underground line]\" or \"bus [bus No.]\" ")
         time.sleep(3)
         send_text.text(mobile, "By sending \"reset\", your session will be cleared, although it will also be cleared automatically. Thanks for using traxt.")
-        
+        sessions.delete(mobile)
 
     # so we don't know the operator.
     else:
