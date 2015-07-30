@@ -31,7 +31,7 @@ def directions(origin, destination):
             else:
                 line = ""
 
-            step_details.append("Take the " + html_inst + " Departing from " + dep_stop + " at " + dep_time + ". Arriving at " + arr_stop + " at " + arr_time + ". TOC: " + line + ".")
+            step_details.append("Take the " + html_inst + " Departing from " + dep_stop + " at " + dep_time + ". Arriving at " + arr_stop + " at " + arr_time + ". Route: " + line + ".")
 
     return step_details
 
