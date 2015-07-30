@@ -107,6 +107,9 @@ def route(number,message,spl_txt,db_data, operator):
         #swap stored values around, and run google function
         inf_funcs.google_it(number, db_origin, db_destination)
         return
+    elif operator == "reset":
+        sessions.delete(number)
+        return
     else:
         #now check to see what existing fields have been written to
         print "17"
@@ -115,7 +118,7 @@ def route(number,message,spl_txt,db_data, operator):
             #if we have origin but no destination
             #take the dest that has been sent and add to db, then google
             print "b"
-            inf_funcs.add_dest_google(number,message, db_origin, db_destination)
+            inf_funcs.add_dest_google(number,operator + " " + message, db_origin, db_destination)
             print "c"
             return
         elif (db_origin == None) and (db_destination != None): 
