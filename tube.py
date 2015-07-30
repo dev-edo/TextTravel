@@ -26,7 +26,7 @@ def tube(number, message):
         if "reason" in x["lineStatuses"][0]:
             switch = True
             print "Reason sent"
-        send2 = "Issue: " + x["lineStatuses"][0]["reason"]
+            send2 = "Issue: " + x["lineStatuses"][0]["reason"]
         send = x["name"].title() + " Route: " + x["lineStatuses"][0]["statusSeverityDescription"]
 
         if switch is True:
