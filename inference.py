@@ -104,8 +104,8 @@ def route(number,message,spl_txt,db_data, operator):
         print "reached to operator inside inference.py"
         #we have a destination 
         #write to the database
-        print spl_txt[1:]
-        sessions.add_destination(number, spl_txt[1:])
+        print msg_string
+        sessions.add_destination(number, msg_string)
         if (db_origin != None) and (db_destination != None):
             print "provided we have both pieces of information"
             inf_funcs.google_it(number)
