@@ -75,32 +75,8 @@ def route(number,message,spl_txt,db_data, operator):
     db_destination = db_data[2]
     msg_string = str(spl_txt[1:])
     print "16"
-    if operator == None:
-        #now check to see what existing fields have been written to
-        print "17"
-        if (db_origin != None) and (db_destination == None):
-            print "a"
-            #if we have origin but no destination
-            #take the dest that has been sent and add to db, then google
-            print "b"
-            inf_funcs.add_dest_google(number,message)
-            print "c"
-            return
-        elif (db_origin == None) and (db_destination != None): 
-            print "d"
-            #if there is nothing in origin and we have a dest for this number
-            #take the origin that has been sent and add to db, then google
-            inf_funcs.add_org_google(number,message)
-            print "e"
-            return
-
-        elif (db_origin == None) and (db_destination == None): #neither have been populated, we assume starting with origin
-            #take the origin, explain decision and ask for destination
-            print "f"
-            inf_funcs.inf_org(number,message)
-            print "g"
-            return
-    elif operator == 'to':
+    
+    if operator == 'to':
         print "reached to operator inside inference.py"
         #we have a destination 
         #write to the database
@@ -132,6 +108,28 @@ def route(number,message,spl_txt,db_data, operator):
         inf_funcs.google_it(number, db_destination, db_origin)
         return
     else:
-        print "21"
-        inf_funcs.error(number)
-        return
+        #now check to see what existing fields have been written to
+        print "17"
+        if (db_origin != None) and (db_destination == None):
+            print "a"
+            #if we have origin but no destination
+            #take the dest that has been sent and add to db, then google
+            print "b"
+            inf_funcs.add_dest_google(number,message)
+            print "c"
+            return
+        elif (db_origin == None) and (db_destination != None): 
+            print "d"
+            #if there is nothing in origin and we have a dest for this number
+            #take the origin that has been sent and add to db, then google
+            inf_funcs.add_org_google(number,message)
+            print "e"
+            return
+
+        elif (db_origin == None) and (db_destination == None): #neither have been populated, we assume starting with origin
+            #take the origin, explain decision and ask for destination
+            print "f"
+            inf_funcs.inf_org(number,message)
+            print "g"
+            return
+
