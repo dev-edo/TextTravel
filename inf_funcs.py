@@ -10,7 +10,7 @@ def retrive_db(number):
 
 def error(number):
     retrive_db(number)
-    send_text.text('A fatal error occurred handling your request')
+    send_text.text(number, 'A fatal error occurred handling your request')
     return
 
 def google_it(number):
