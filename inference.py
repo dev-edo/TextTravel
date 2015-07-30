@@ -47,17 +47,17 @@ def infer(number,message,spl_txt,db_data):
         item = spl_txt[1]
         tube.tube(number, spl_txt[1])
         print "11"
-        return response_body
+        return 
 
     elif operator == 'help':
         print "12"
         send_text.text(number,'To get tube status, "tube {line}", for route info, "to {place}" and "from {place}"')
-        return response_body
+        return 
     elif operator == 'bus':
         print "13"
         item = spl_txt[1]
         bus.bus(number, item)
-        return response_body
+        return 
     else:
         print "14"
         route(number,message,spl_txt,db_data, operator)
