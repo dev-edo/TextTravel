@@ -12,7 +12,7 @@ def process(mobile, message):
         #do we have a stored destination?
         if sessions.retrive_data(mobile)[2] != None:
             #google using the rest of the message and the stored destination
-            google_it(number, " ".join(message_array[1:]), destination)
+            google_it(mobile, " ".join(message_array[1:]), destination)
         # else:
         else:
             # save the rest of the message as the origin
@@ -31,46 +31,46 @@ def process(mobile, message):
             # then this must be the destination
             destnation = " ".join(message_array[1:])
             # google using the saved origin and the rest of the message
-            google_it(number, origin, destination)
+            google_it(mobile, origin, destination)
         # we dont have a saved origin, so this must be it
         else:
             # save the message as the origin
             origin = " ".join(message_array[1:])
             # prompt for the destination
-            dest_req(number)
+            dest_req(mobile)
 
-def google_it(number, origin, destination):
-    retrive_db(number)
+def google_it(mobile, origin, destination):
+    retrive_db(mobile)
     #print "Google_it called"
     #print "Origin is: "+str(origin)+". Type is "+str(type(origin))
     #print "Destination is: "+str(destination)+". Type is "+str(type(destination))
     step_details = google.directions(origin, destination)  #TODO: make function
     #print "step_details is: "+str(step_details)+". Type is "+str(type(step_details))
     if step_details == []:
-        send_text.text(number, "Unfourtunatley, we cannot find directions for you. Sorry for any inconvinience caused.")
+        send_text.text(mobile, "Unfourtunatley, we cannot find directions for you. Sorry for any inconvinience caused.")
     else:
         for step in step_details:
-            send_text.text(number,step)
-    sessions.delete(number)
+            send_text.text(mobile,step)
+    sessions.delete(mobile)
     return
 
-def dest_req(number):
-    send_text.text(number, 'Where is the end point of your journey?')
+def dest_req(mobile):
+    send_text.text(mobile, 'Where is the end point of your journey?')
     return
 
-def origin_req(number):
-    send_text.text(number, 'Where is the start point of your journey?')
+def origin_req(mobile):
+    send_text.text(mobile, 'Where is the start point of your journey?')
     return
 
 def process_origin(mobile, message_array, origin, destination):
     # do we have a stored origin
     if origin != None:
         # google using the stored origin and the rest of the message
-        google_it(number, origin, message_array[1:])
+        google_it(mobile, origin, message_array[1:])
     # else:
     else:
         # save the rest of the message as the destination
         destination = message_array[1:]
         sessions.add_destination(mobile, destination)
         # Request the origin
-        origin_req(number)
+        origin_req(mobile)
