@@ -60,14 +60,14 @@ def infer(number,message,spl_txt,db_data):
         return response_body
     else:
         print "14"
-        route(number,message,spl_txt,db_data)
+        route(number,message,spl_txt,db_data, operator)
         print "15"
         #******************************************************
         #Do NOT remove the commenting!
         #******************************************************
 
 #check to see what operator we are using as defined in 'operator'
-def route(number,message,spl_txt,db_data):
+def route(number,message,spl_txt,db_data, operator):
     print "16"
     if operator == None:
         #now check to see what existing fields have been written to
