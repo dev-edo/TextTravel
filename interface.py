@@ -62,9 +62,12 @@ def process(mobile, message):
         else:
             # save the message as the origin
             origin = " ".join(message_array)
-            sessions.add_origin(mobile, origin)
-            # prompt for the destination
-            dest_req(mobile)
+            if destination != None:
+                google_it(mobile, origin, destination)
+            else:
+                sessions.add_origin(mobile, origin)
+                # prompt for the destination
+                dest_req(mobile)
 
 def google_it(mobile, origin, destination):
     #print "Google_it called"
