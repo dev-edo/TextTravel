@@ -8,7 +8,7 @@ def tube(number, message):
     
     switch = False
 
-    response = urllib2.urlopen('https://api.tfl.gov.uk/line/mode/bus/status')
+    response = urllib2.urlopen('https://api.tfl.gov.uk/line/mode/tube/status')
     data = json.load(response)
     print "Possible route no. sent: " + message
     
@@ -39,5 +39,5 @@ def tube(number, message):
 
     if switch is False:
         print "Error."
-        send_text.text(number, "Not a real route!")
+        send_text.text(number, "Not a real line!")
         api.send(message)
