@@ -30,3 +30,8 @@ def delete(mobile):
     "Deletes all of the user's information, finding the user via the mobile"""
     cursor.execute('DELETE FROM sessions WHERE mobile == ?', (mobile,))
     conn.commit()
+    
+def save_time(mobile, req_time):
+    #Finds the user via mobile, adds requested time
+    cursor.execute('UPDATE sessions SET time = ? WHERE mobile == ?', (req_time, mobile))
+    conn.commit()

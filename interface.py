@@ -7,12 +7,26 @@ def process(mobile, message):
     data          = sessions.retrive_data(mobile)
     origin        = data[1]
     destination   = data[2]
+    req_time       = data[3]
+    req_mes = " ".join(message_array[1:])
+    
+
+    if re.findall("((?<= at )\d{1,2})(:)((?<=:)\d{1,2}).*", req_mes, re.IGNORECASE)[0] != None:
+        user_time = re.findall("((?<= at )\d{1,2})(:)((?<=:)\d{1,2}).*", req_mes, re.IGNORECASE)[0]
+
+        start_time = datetime.datetime.today()
+        start_time = start_time.replace(hour = int(user_time[0]))
+        start_time = start_time.replace(minute = int(user_time[2]))
+        
+        req_time = int((start_time - datetime.datetime(1970,1,1)).total_seconds())
+        sessions.save_time(number, req_time)
+    
     #Is the operator "from"
     if operator == "from":
         #do we have a stored destination?
         if destination != None:
             #google using the rest of the message and the stored destination
-            google_it(mobile, " ".join(message_array[1:]), destination)
+            google_it(mobile, " ".join(message_array[1:]), destination, req_time)
         # else:
         else:
             # save the rest of the message as the origin
@@ -23,7 +37,7 @@ def process(mobile, message):
 
     #ok, how about "to"
     elif operator == "to":
-        process_origin(mobile, " ".join(message_array[1:]), origin, destination)
+        process_origin(mobile, " ".join(message_array[1:]), origin, destination, req_time)
     #if they have asked to reset:
     elif operator == "reset":
         sessions.delete(mobile)
@@ -57,19 +71,19 @@ def process(mobile, message):
             # google using the saved origin and the rest of the message
             print "Origin is: "     +str(origin)     +". Type is "+str(type(origin))
             print "Destination is: "+str(destination)+". Type is "+str(type(destination))
-            google_it(mobile, origin, destination)
+            google_it(mobile, origin, destination, req_time)
         # we dont have a saved origin, so this must be it
         else:
             # save the message as the origin
             origin = " ".join(message_array)
             if destination != None:
-                google_it(mobile, origin, destination)
+                google_it(mobile, origin, destination, req_time)
             else:
                 sessions.add_origin(mobile, origin)
                 # prompt for the destination
                 dest_req(mobile)
 
-def google_it(mobile, origin, destination):
+def google_it(mobile, origin, destination, req_time):
     #print "Google_it called"
     #print "Origin is: "+str(origin)+". Type is "+str(type(origin))
     #print "Destination is: "+str(destination)+". Type is "+str(type(destination))

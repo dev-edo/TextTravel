@@ -1,8 +1,13 @@
 import httplib2
 import xml.etree.ElementTree as ET
 from urllib import urlencode
-def directions(origin, destination):
-    parameters = {"origin":origin + ", uk", "destination":destination + ", uk","mode":"transit", "key":"AIzaSyB-6vE5lQe3GwCXRZLpsbek9R2nmzB6Dl4"}
+def directions(origin, destination, req_time = None):
+    if req_time == None:
+        parameters = {"origin":origin + ", uk", "destination":destination + ", uk","mode":"transit", "key":"AIzaSyB-6vE5lQe3GwCXRZLpsbek9R2nmzB6Dl4"}
+    else:
+        parameters = {"origin":origin + ", uk", "destination":destination + ", uk","mode":"transit", "departure_time":req_time, "key":"AIzaSyB-6vE5lQe3GwCXRZLpsbek9R2nmzB6Dl4"}
+
+    
     nice = urlencode(parameters)
     
     h = httplib2.Http()
