@@ -21,4 +21,8 @@ Both bus.py and tube.py use the *Transport for London* API to generate a JSON fi
 send_text.py
 ------------
 
-The send_text.py file uses the *Clockwork SMS* API.
+The send_text.py file uses the *Clockwork SMS* API. It calls the API, passing it a message, and the user's number
+
+--------------------------------------------------------------------
+
+To start using traxt. 
