@@ -2,11 +2,11 @@ import sqlite3
 conn = sqlite3.connect('sessions.db')
 cursor = conn.cursor()
 
-def insert(mobile, origin = None, destination = None):
+def insert(mobile, origin = None, destination = None, req_time = None):
     """ Adds user to the database, always identifies via the mobile no. There is no requirement for an immediate location
     or destination"""
     
-    cursor.execute('INSERT INTO sessions VALUES (?,?,?)', (mobile, origin, destination))
+    cursor.execute('INSERT INTO sessions VALUES (?,?,?,?)', (mobile, origin, destination, req_time))
     conn.commit()
 
 def add_origin(mobile, origin):
