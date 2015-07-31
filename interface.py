@@ -108,11 +108,11 @@ def origin_req(mobile):
     send_text.text(mobile, 'Where is the start point of your journey?')
     return
 
-def process_origin(mobile, message_array, origin, destination):
+def process_origin(mobile, message_array, origin, destination, req_time = None):
     # do we have a stored origin
     if origin != None:
         # google using the stored origin and the rest of the message
-        google_it(mobile, origin, message_array[1:])
+        google_it(mobile, origin, message_array[1:], req_time)
     # else:
     else:
         # save the rest of the message as the destination
