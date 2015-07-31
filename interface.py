@@ -11,7 +11,7 @@ def process(mobile, message):
     req_mes = " ".join(message_array[1:])
     
 
-    if re.findall("((?<= at )\d{1,2})(:)((?<=:)\d{1,2}).*", req_mes, re.IGNORECASE)[0] != None:
+    if re.findall("((?<= at )\d{1,2})(:)((?<=:)\d{1,2}).*", req_mes, re.IGNORECASE) != None:
         user_time = re.findall("((?<= at )\d{1,2})(:)((?<=:)\d{1,2}).*", req_mes, re.IGNORECASE)[0]
 
         start_time = datetime.datetime.today()
