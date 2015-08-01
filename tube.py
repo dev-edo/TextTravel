@@ -40,4 +40,3 @@ def tube(number, message):
     if switch is False:
         print "Error."
         send_text.text(number, "Not a real line!")
-        api.send(message)
