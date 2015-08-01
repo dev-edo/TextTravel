@@ -34,4 +34,3 @@ def bus(number, item):
     if switch is False:
         print "Error."
         send_text.text(number, "Not a real route!")
-        api.send(message)
