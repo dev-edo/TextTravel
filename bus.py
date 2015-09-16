@@ -1,8 +1,4 @@
-import send_text
-import urllib2
-import json
-import time
-
+import send_text, urllib2, json, time
 
 def bus(number, item):
     
